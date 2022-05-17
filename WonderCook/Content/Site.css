@@ -21,8 +21,8 @@
 
 .menulogo {
     /*margin-right: auto; to make it stick to the left side of page*/
-    width: 220px;
-    height: 220px;
+    /*inline-size:20%;*/
+    width:20%;
     border-radius: 250px;
 }
 .SearchBarWithIcon {
@@ -34,6 +34,7 @@
     position: absolute;
     float: right;
     margin-top:118px;
+    
 }
 .searchbar {
     outline: none;
@@ -53,7 +54,7 @@
         margin-top: 87.5px;
         padding: 15px;
         height: 55px;
-        width: 100%;
+        width: 70%;
         box-shadow: 0px 4px 4px rgb(237 90 88);
         border-radius: 74px;
     }
@@ -66,7 +67,6 @@
     line-height: 32px;
     
 }
-
 /*@font-face {
     font-family: 'Roboto';
     src: url('roboto.eot');*/ /* IE9 Compat Modes */
