@@ -2,15 +2,26 @@
     ViewBag.Title = "Home";
 }
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+	
+	<link href="~/Content/Site.css" rel="stylesheet" />
 </head>
 <body class="menubackground">
 
-    <div class="headerindex">
-        <img class="menulogo" src="~/Content/Images/1.png" alt="image" onclick="Index" />
-        
-            <input type="search" class="searchbar searchbarfont" placeholder="Search for Recipes........" />
-            <i class="fa fa-search fa-2xl iconsearch" style="color: rgb(206,39,39)" aria-hidden="true"></i>
-        
-    </div>
+	@*<div class="headerindex">
+			<img class="menulogo" src="~/Content/Images/1.png" alt="image" onclick="Index" />
+
+				
+
+		</div>*@
+	<div class="container">
+		<a class="navbar-brand" href="#">
+			<img src="~/Content/Images/4.png" alt=""  class="menulogo">
+		</a>
+		<div style="background:transparent !important" class="jumbotron">
+			<input type="search" class="searchbar searchbarfont" placeholder="Search for Recipes........"
+				   /><i class="fa fa-search fa-2xl iconsearch" style="color: rgb(206,39,39)" aria-hidden="true"></i>
+			
+		</div>
+		</div>
 </body>
