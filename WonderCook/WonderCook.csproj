@@ -130,6 +130,24 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\recipe.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>recipe.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\recipe.cs">
+      <DependentUpon>recipe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\recipe.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>recipe.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\recipe1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>recipe.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -150,8 +168,26 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\recipe.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>recipe.edmx</DependentUpon>
+      <LastGenOutput>recipe.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\recipe.edmx.sql" />
+    <Content Include="Models\recipe.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>recipe.edmx</DependentUpon>
+      <LastGenOutput>recipe1.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\recipe.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>recipe.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\recipe.edmx.diagram">
+      <DependentUpon>recipe.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -181,7 +217,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Model\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
