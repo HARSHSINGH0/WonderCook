@@ -21,11 +21,16 @@
 
 .menulogo {
 	/*margin-right: auto; to make it stick to the left side of page*/
-	width: 220px;
-	height: 220px;
+	width: 30%;
+	max-width:200px;
+	height:auto;	
 	border-radius: 250px;
 	margin-top:-50px;
-	
+}
+
+.SearchBarWithIcon {
+	padding-right: 15px;
+	padding-left: 15px;
 }
 
 
@@ -34,7 +39,10 @@
 	position: absolute;
 	float: right;
 	margin-top: 40px;
-	margin-left:-60px;
+	position:absolute;
+	margin-right:75px !important;
+
+	
 }
 
 .searchbar {
@@ -65,20 +73,47 @@
 		border-radius: 74px;
 	}
 
-	.searchbar:hover {
-		outline: none;
-		border: none;
-		-webkit-appearance: none;
-		-moz-appearance: none;
-		margin-top: 10px;
-		padding: 15px;
-		height: 55px;
-		width: 70%;
-		background: #FFFFFF;
-		box-shadow: 0px 4px 4px rgb(255 216 0);
-		border-radius: 74px;
-	}
+=======
+    /*margin-right: auto; to make it stick to the left side of page*/
+    /*inline-size:20%;*/
+    width:20%;
+    border-radius: 250px;
+}
+.SearchBarWithIcon {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.iconsearch {
+    padding-left:15px;
+    position: absolute;
+    float: right;
+    margin-top:118px;
+    
+}
+.searchbar {
+    outline: none;
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin-top: 87.5px;
+    padding: 15px;
+    height: 55px;
+    width: 70%;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(255, 0, 0, 0.25);
+    border-radius: 74px;
+}
+    .searchbar:focus {
 
+        margin-top: 87.5px;
+        padding: 15px;
+        height: 55px;
+        width: 70%;
+        box-shadow: 0px 4px 4px rgb(237 90 88);
+        border-radius: 74px;
+    }
+   
+>>>>>>> 7c62e8fdb4579dcbeb1ecba567ae2e65caaf9524
 .searchbarfont {
 	font-family: Consolas;
 	font-style: normal;
@@ -125,11 +160,6 @@ body {
 	justify-content: center;
 }
 
-#rightside {
-	background-color:royalblue;
-}
-.jd {
-	posistion: relative;
-	z-index: 2;
-	box-shadow: 0 8px 16px -6px black;
+body {
+	background-color: #f2fef2;
 }
