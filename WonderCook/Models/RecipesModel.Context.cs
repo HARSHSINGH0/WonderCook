@@ -13,10 +13,10 @@ namespace WonderCook.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class projectEntities : DbContext
+    public partial class RecipesModelContainer : DbContext
     {
-        public projectEntities()
-            : base("name=projectEntities")
+        public RecipesModelContainer()
+            : base("name=RecipesModelContainer")
         {
         }
     
@@ -25,8 +25,8 @@ namespace WonderCook.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<recipes> recipes1 { get; set; }
-        public DbSet<ingredients> ingredients { get; set; }
-        public DbSet<macro_nutrients> macro_nutrients { get; set; }
+        public DbSet<Recipes> Recipes { get; set; }
+        public DbSet<Ingredients> Ingredients { get; set; }
+        public DbSet<Macro_Ingredients> Macro_Ingredients { get; set; }
     }
 }

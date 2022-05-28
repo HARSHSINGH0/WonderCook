@@ -12,11 +12,13 @@ namespace WonderCook.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class recipe
+    public partial class Macro_Ingredients
     {
-        public decimal recipe_id { get; set; }
-        public string recipe_name { get; set; }
-        public byte[] image { get; set; }
-        public string how_to_make { get; set; }
+        public int Id { get; set; }
+        public string nutrient { get; set; }
+        public string amount { get; set; }
+        public int Recipes_recipe_id { get; set; }
+    
+        public virtual Recipes Recipe { get; set; }
     }
 }

@@ -130,23 +130,29 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\recipe.Context.cs">
+    <Compile Include="Models\Ingredients.cs">
+      <DependentUpon>RecipesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Macro_Ingredients.cs">
+      <DependentUpon>RecipesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Recipes.cs">
+      <DependentUpon>RecipesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RecipesModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>recipe.Context.tt</DependentUpon>
+      <DependentUpon>RecipesModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\recipe.cs">
-      <DependentUpon>recipe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\recipe.Designer.cs">
+    <Compile Include="Models\RecipesModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>recipe.edmx</DependentUpon>
+      <DependentUpon>RecipesModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\recipe1.cs">
+    <Compile Include="Models\RecipesModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>recipe.tt</DependentUpon>
+      <DependentUpon>RecipesModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -179,12 +185,30 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\RecipesModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>RecipesModel.Context.cs</LastGenOutput>
+      <DependentUpon>RecipesModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\RecipesModel.edmx.sql" />
+    <Content Include="Models\RecipesModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>RecipesModel.cs</LastGenOutput>
+      <DependentUpon>RecipesModel.edmx</DependentUpon>
+    </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\RecipesModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>RecipesModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\RecipesModel.edmx.diagram">
+      <DependentUpon>RecipesModel.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
