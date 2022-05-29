@@ -26,5 +26,10 @@ namespace WonderCook.Controllers
 
             return View();
         }
+        public ActionResult Recipe()
+        {
+
+            return View();
+        }
     }
 }
