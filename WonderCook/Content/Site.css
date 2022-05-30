@@ -57,8 +57,6 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     padding: 15px;
-    padding-left: 25px;
-    padding-right: 50px;
     height: 55px;
     width: 90%;
     background: #FFFFFF;
@@ -69,8 +67,6 @@
 
     .searchbar:focus {
         padding: 15px;
-        padding-left: 25px;
-        padding-right: 50px;
         height: 55px;
         width: 90%;
         box-shadow: 0px 4px 4px rgb(237 90 88);
@@ -86,9 +82,8 @@
 .searchbarfont {
     font-family: Consolas;
     font-style: normal;
-    font-weight: 900;
-    font-size: 100%;
-    text-decoration: double;
+    font-weight: 500;
+    font-size: 20px;
     line-height: 32px;
 }
 
@@ -143,8 +138,6 @@ body {
     max-width: 200px;
     border-radius: 250px;
 }
-.backgroundLanding {
-    background: linear-gradient(192deg, #FEFEFE 46.58%, #FECDAA 52.6%, #FFA470 79.51%);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+.backgroundlanding {
+    background: linear-gradient(315.74deg, #FEFEFE 46.58%, #FECDAA 52.6%, #FFA470 79.51%);
 }
