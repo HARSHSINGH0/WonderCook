@@ -86,9 +86,8 @@
 .searchbarfont {
     font-family: Consolas;
     font-style: normal;
-    font-weight: 900;
-    font-size: 100%;
-    text-decoration: double;
+    font-weight: 500;
+    font-size: 20px;
     line-height: 32px;
 }
 
@@ -121,7 +120,7 @@ body {
 .leftcontent {
     background: #F2F2F2;
 }
-
+ 
 #leftside {
     border-radius: 7%;
     background-color: darkgray;
@@ -143,8 +142,8 @@ body {
     max-width: 200px;
     border-radius: 250px;
 }
-.backgroundLanding {
+.backgroundlanding {
     background: linear-gradient(192deg, #FEFEFE 46.58%, #FECDAA 52.6%, #FFA470 79.51%);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-repeat:no-repeat;
+    background-attachment:fixed; 
 }
