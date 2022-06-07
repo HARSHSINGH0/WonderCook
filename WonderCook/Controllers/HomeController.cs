@@ -31,5 +31,18 @@ namespace WonderCook.Controllers
 
             return View();
         }
+        public ActionResult ChefInput()
+        {
+            return View();
+        }
+        //public ActionResult ViewAll()
+        //{
+        //    return View(GetAllRecipes);
+        //}
+        //IEnumerable<ChefInput> GetAllRecipes()
+        //{
+        //    using (RecipesModel)
+        //}
+
     }
 }

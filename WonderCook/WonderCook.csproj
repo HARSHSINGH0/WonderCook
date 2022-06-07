@@ -47,13 +47,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -129,32 +131,39 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InputController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Ingredients.cs">
-      <DependentUpon>RecipesModel.tt</DependentUpon>
+      <DependentUpon>RecipeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Macro_Ingredients.cs">
-      <DependentUpon>RecipesModel.tt</DependentUpon>
+      <DependentUpon>RecipeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RecipeModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RecipeModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RecipeModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RecipeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RecipeModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RecipeModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Recipes.cs">
-      <DependentUpon>RecipesModel.tt</DependentUpon>
+      <DependentUpon>RecipeModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\RecipesModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RecipesModel.Context.tt</DependentUpon>
+    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>RecipeModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\RecipesModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RecipesModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\RecipesModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RecipesModel.edmx</DependentUpon>
+    <Compile Include="Models\sp_helpdiagrams_Result.cs">
+      <DependentUpon>RecipeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -184,19 +193,28 @@
     <Content Include="Content\Images\image assests\dairy.png" />
     <Content Include="Content\Images\image assests\herbsand spices.png" />
     <Content Include="Content\Images\image assests\vegetables.png" />
+    <Content Include="Content\landingstyle.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\RecipesModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>RecipesModel.Context.cs</LastGenOutput>
-      <DependentUpon>RecipesModel.edmx</DependentUpon>
+    <Content Include="Models\.sql" />
+    <EntityDeploy Include="Models\RecipeModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>RecipeModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\RecipeModel.edmx.diagram">
+      <DependentUpon>RecipeModel.edmx</DependentUpon>
     </Content>
-    <Content Include="Models\RecipesModel.edmx.sql" />
-    <Content Include="Models\RecipesModel.tt">
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Models\RecipeModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>RecipesModel.cs</LastGenOutput>
-      <DependentUpon>RecipesModel.edmx</DependentUpon>
+      <DependentUpon>RecipeModel.edmx</DependentUpon>
+      <LastGenOutput>RecipeModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\RecipeModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RecipeModel.edmx</DependentUpon>
+      <LastGenOutput>RecipeModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -204,14 +222,6 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\RecipesModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>RecipesModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\RecipesModel.edmx.diagram">
-      <DependentUpon>RecipesModel.edmx</DependentUpon>
-    </Content>
-    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -237,6 +247,8 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Recipe.cshtml" />
+    <Content Include="Views\Home\ChefInput.cshtml" />
+    <Content Include="Views\Input\AddRecipes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

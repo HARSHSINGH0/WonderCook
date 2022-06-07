@@ -120,7 +120,7 @@ body {
 .leftcontent {
     background: #F2F2F2;
 }
- 
+
 #leftside {
     border-radius: 7%;
     background-color: darkgray;
@@ -142,8 +142,9 @@ body {
     max-width: 200px;
     border-radius: 250px;
 }
+
 .backgroundlanding {
     background: linear-gradient(192deg, #FEFEFE 46.58%, #FECDAA 52.6%, #FFA470 79.51%);
-    background-repeat:no-repeat;
-    background-attachment:fixed; 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
