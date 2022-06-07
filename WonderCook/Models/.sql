@@ -2,13 +2,13 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/28/2022 12:05:03
+-- Date Created: 06/11/2022 08:28:43
 -- Generated from EDMX file: C:\Users\hs475\source\repos\HARSHSINGH0\WonderCook\WonderCook\Models\RecipesModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
 GO
-USE [project];
+USE [RecipeDatabase];
 GO
 IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
 GO
@@ -17,11 +17,26 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_Recipes_Ingredients]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Ingredients] DROP CONSTRAINT [FK_Recipes_Ingredients];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Recipes_Macro_Ingredients]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Macro_Ingredients] DROP CONSTRAINT [FK_Recipes_Macro_Ingredients];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[Ingredients]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Ingredients];
+GO
+IF OBJECT_ID(N'[dbo].[Macro_Ingredients]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Macro_Ingredients];
+GO
+IF OBJECT_ID(N'[dbo].[Recipes]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Recipes];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
