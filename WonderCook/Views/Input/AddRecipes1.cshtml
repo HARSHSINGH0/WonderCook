@@ -1,0 +1,82 @@
+﻿@using WonderCook.Models;
+@model RecipeAddViewModel
+@{
+    ViewBag.Title = "AddRecipes";
+}
+
+<h2>AddRecipes</h2>
+
+@using (Html.BeginForm("AddRecipesPost", "Input", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()//Using AntiForgeryToken helps mitigate against cross-site request forgery attacks.
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <ul class="nav nav-pills" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#firstTab" role="tab" aria-controls="home" aria-selected="true">Add New</a>
+</li>
+        <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#secondTab" role="tab" aria-controls="profile" aria-selected="false">View All</a>
+        </li>
+    </ul>
+    <hr />
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="firstTab" role="tabpanel" aria-labelledby="home-tab">
+            <div class="form-horizontal">
+                <h4>Recipe</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.RecipesModel.recipe_name,"Recipe Name", htmlAttributes: new { @class = "control-label col-md-2" })
+                
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RecipesModel.recipe_name, new { htmlAttributes = new { @class = "form-control" } })
+                    
+                    @Html.ValidationMessageFor(model => model.RecipesModel.recipe_name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.RecipesModel.image, htmlAttributes: new { @class = "control-label col-md-2" })
+                
+                <div class="col-md-10">
+                    
+                @Html.EditorFor(model => model.RecipesModel.image, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RecipesModel.image, "", new { @class = "text-danger" })
+                    
+                    @*<input type="file" name="ImageFile" required />*@
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.RecipesModel.how_to_make, htmlAttributes: new { @class = "control-label col-md-2" })
+                
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RecipesModel.how_to_make, new { htmlAttributes = new { @class = "form-control" } })
+                    @*<input type="text" name="lname">
+                    <label for="how_to_make">How to make</label><br>*@
+                    @Html.ValidationMessageFor(model => model.RecipesModel.how_to_make, "", new { @class = "text-danger" })
+                </div>
+            </div>
+                <br />
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="secondTab" role="tabpanel" aria-labelledby="profile-tab">tab2 content</div>
+    </div>
+
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
