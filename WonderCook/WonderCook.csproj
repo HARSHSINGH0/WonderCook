@@ -250,8 +250,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Recipe.cshtml" />
     <Content Include="Views\Home\ChefInput.cshtml" />
-    <Content Include="Views\Input\AddRecipes1.cshtml" />
     <Content Include="Views\Input\AddRecipes.cshtml" />
+    <Content Include="Views\Input\ShowRecipe.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

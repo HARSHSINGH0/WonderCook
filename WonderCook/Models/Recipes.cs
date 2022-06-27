@@ -14,11 +14,9 @@ namespace WonderCook.Models
     
     public partial class Recipes
     {
-        
         public int recipe_id { get; set; }
-        
         public string recipe_name { get; set; }
-        public string image { get; set; }
+        public byte[] image { get; set; }
         public string how_to_make { get; set; }
     }
 }

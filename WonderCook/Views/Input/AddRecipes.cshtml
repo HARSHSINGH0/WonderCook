@@ -1,4 +1,5 @@
 ﻿@using WonderCook.Models;
+@*@model IEnumerable<WonderCook.Models.RecipeAddViewModel>*@ 
 @model RecipeAddViewModel
 @{
     ViewBag.Title = "AddRecipes";
@@ -18,11 +19,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-    <ul class="nav nav-pills" id="myTab" role="tablist">
-        <li class="nav-item">
+    <ul class="nav nav-item" id="myTab" role="tablist">
+        <li class="nav-tabs">
             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#firstTab" role="tab" aria-controls="home" aria-selected="true">Add New</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-tabs">
             <a class="nav-link" id="profile-tab" data-toggle="tab" href="#secondTab" role="tab" aria-controls="profile" aria-selected="false">View All</a>
         </li>
     </ul>
@@ -38,6 +39,15 @@
                     <hr />
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     <div class="form-group">
+                        @Html.LabelFor(model => model.RecipesModel.recipe_id,"Recipe Id:", htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.DisplayFor(model=> model.RecipesModel.recipe_id)
+
+                        @*<div class="col-md-10">
+                            @Html.EditorFor(model => model.RecipesModel.recipe_name, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.RecipesModel.recipe_name, "", new { @class = "text-danger" })
+                        </div>*@
+                    </div>
+                    <div class="form-group">
                         @Html.LabelFor(model => model.RecipesModel.recipe_name, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.RecipesModel.recipe_name, new { htmlAttributes = new { @class = "form-control" } })
@@ -48,9 +58,16 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.RecipesModel.image, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.RecipesModel.image, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.RecipesModel.image, "", new { @class = "text-danger" })
+                            @*@Html.EditorFor(model => model.RecipesModel.image, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.RecipesModel.image, "", new { @class = "text-danger" })*@
+                            @* <img src="@Url.Content(model.RecipesModel.image)" id="imagePreview" />*@
+                            @*@Html.DisplayFor(model=> model.RecipesModel.image)*@
+                            <input type="file" name="imageRecipe" accept="image/jpeg , image/png" id="imageRecipe" onchange="fileCheck(this);" /> @*onchange="ShowImagePreview(this, document.getElementById('imagePreview'))"*@
+
+                            @*@Html.TextBoxFor(m => m.RecipesModel.image, new { type = "file", placeholder = Html.DisplayNameFor(m => m.RecipesModel.image), @class = "form-control", accept = "image/jpeg,  image/jpg" })*@
+
                         </div>
+
                     </div>
 
                     <div class="form-group">
@@ -121,45 +138,50 @@
                 {
                     @Html.AntiForgeryToken()
 
-                    <div class="form-horizontal">
-                        <h4>Macro_Ingredients</h4>
-                        <hr />
-                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Macro_IngredientsModel.nutrient, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.Macro_IngredientsModel.nutrient, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.Macro_IngredientsModel.nutrient, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Macro_IngredientsModel.amount, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.Macro_IngredientsModel.amount, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.Macro_IngredientsModel.amount, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Macro_IngredientsModel.Recipes_recipe_id, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.Macro_IngredientsModel.Recipes_recipe_id, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.Macro_IngredientsModel.Recipes_recipe_id, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                <input type="submit" value="Add Macros" class="btn btn-warning" />
-                            </div>
+                <div class="form-horizontal">
+                    <h4>Macro_Ingredients</h4>
+                    <hr />
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Macro_IngredientsModel.Recipes_recipe_id, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Macro_IngredientsModel.Recipes_recipe_id, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Macro_IngredientsModel.Recipes_recipe_id, "", new { @class = "text-danger" })
                         </div>
                     </div>
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Macro_IngredientsModel.nutrient, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Macro_IngredientsModel.nutrient, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Macro_IngredientsModel.nutrient, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Macro_IngredientsModel.amount, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Macro_IngredientsModel.amount, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Macro_IngredientsModel.amount, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Add Macros" class="btn btn-warning" />
+                        </div>
+                    </div>
+                </div>
                 }
 
             </div>
         </div>
-        <div class="tab-pane fade" id="secondTab" role="tabpanel" aria-labelledby="profile-tab">tab2 content</div>
+        @* Tab two *@
+    <div class="tab-pane fade" id="secondTab" role="tabpanel" aria-labelledby="profile-tab">
+
+        
+    </div>
     </div>
     </body>
 </html>

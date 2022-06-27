@@ -5,9 +5,9 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="a11eba41e6944ab1bfb1668d1b8816ed" Name="Diagram1">
-        <EntityTypeShape EntityType="RecipeDatabaseModel.Ingredients" Width="1.5" PointX="3.25" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="RecipeDatabaseModel.Macro_Ingredients" Width="1.75" PointX="3.375" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="RecipeDatabaseModel.Recipes" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RecipeDatabaseModel.Ingredients" Width="2.625" PointX="3.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RecipeDatabaseModel.Macro_Ingredients" Width="1.75" PointX="4.125" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RecipeDatabaseModel.Recipes" Width="1.5" PointX="4.5" PointY="6.25" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

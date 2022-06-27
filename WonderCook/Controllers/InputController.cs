@@ -16,14 +16,17 @@ namespace WonderCook.Controllers
         // GET: Input
         public ActionResult Index()
         {
+
             return View();
         }
         // GET: Image
-        [HttpGet]
+        [HttpGet]//[HttpGet]
         public ActionResult AddRecipes()
         {
-            return View();
+            
+            return View(new RecipeAddViewModel());
         }
+        
         [HttpGet]
         public ActionResult AddIngredients()
         {
@@ -34,60 +37,40 @@ namespace WonderCook.Controllers
         {
             return View();
         }
+        
+        public ActionResult ShowRecipe()
+        {
+            return View(dbObj.Recipes.ToList());
+            //return View();
+        }
+
+
+
         //private RecipeAddViewModel obj;
         [HttpPost]
-        public ActionResult AddRecipesPost(RecipeAddViewModel model)//,Macro_Ingredients model2,Ingredients model3
+        public ActionResult AddRecipesPost(RecipeAddViewModel model, HttpPostedFileBase imageRecipe)//,Macro_Ingredients model2,Ingredients model3
         {
             Recipes obj = new Recipes();
-            //Macro_Ingredients objMac = new Macro_Ingredients();
-            //Ingredients objIng = new Ingredients();
+
             
             obj.recipe_id = model.RecipesModel.recipe_id;
             obj.recipe_name = model.RecipesModel.recipe_name;
+            if (imageRecipe != null)
+            {
+
+                model.RecipesModel.image = new byte[imageRecipe.ContentLength];
+                imageRecipe.InputStream.Read(model.RecipesModel.image, 0, imageRecipe.ContentLength);
+
+            }
             obj.image = model.RecipesModel.image;
             obj.how_to_make = model.RecipesModel.how_to_make;
 
-            //objMac.Id = model2.Id;
-            //objMac.nutrient = model2.nutrient;
-            //objMac.Recipes_recipe_id = model.recipe_id;
-
-            //objIng.Id = model3.Id;
-            //objIng.ingredient = model3.ingredient;
-            //objIng.quantity = model3.quantity;
-            //objIng.Recipes_recipe_id = model.recipe_id;
+          
 
             dbObj.Recipes.Add(obj);
             dbObj.SaveChanges();
             
-            //try
-            //{
-            //dbObj.Macro_Ingredients.Add(objMac);
-            //dbObj.Ingredients.Add(objIng);
-            
-            //}
-            //catch (System.Data.Entity.Infrastructure.DbUpdateConcurrencyException ex)
-            //{
-            //    Console.WriteLine(ex.InnerException);
-            //}
-            //catch (System.Data.Entity.Core.EntityCommandCompilationException ex)
-            //{
-            //    Console.WriteLine(ex.InnerException);
-            //}
-            //catch (System.Data.Entity.Core.UpdateException ex)
-            //{
-            //    Console.WriteLine(ex.InnerException);
-            //}
-
-            //catch (System.Data.Entity.Infrastructure.DbUpdateException ex) //DbContext
-            //{
-            //    Console.WriteLine(ex.InnerException);
-            //}
-
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine(ex.InnerException);
-            //    throw;
-            //}
+         
             return View("AddRecipes");
         }
         
