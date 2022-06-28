@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 06/27/2022 19:28:37
+-- Date Created: 06/27/2022 20:29:16
 -- Generated from EDMX file: C:\Users\hs475\source\repos\HARSHSINGH0\WonderCook\WonderCook\Models\RecipeModel.edmx
 -- --------------------------------------------------
 
@@ -58,7 +58,7 @@ GO
 CREATE TABLE [dbo].[Recipes] (
     [recipe_id] int IDENTITY(1,1) NOT NULL,
     [recipe_name] nvarchar(50)  NOT NULL,
-    [image] tinyint  NOT NULL,
+    [image] nvarchar(max)  NOT NULL,
     [how_to_make] nvarchar(max)  NOT NULL
 );
 GO

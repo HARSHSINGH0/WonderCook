@@ -34,7 +34,7 @@
     </Key>
     <Property Name="recipe_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="recipe_name" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="image" Type="tinyint" Nullable="false" />
+    <Property Name="image" Type="nvarchar(max)" Nullable="false" />
     <Property Name="how_to_make" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
 </Schema></edmx:StorageModels>
@@ -65,7 +65,7 @@
           </Key>
           <Property Name="recipe_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="recipe_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="image" Type="Binary" Nullable="false" />
+          <Property Name="image" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" />
           <Property Name="how_to_make" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityContainer Name="RecipeDatabaseEntities" annotation:LazyLoadingEnabled="true">

@@ -12,7 +12,8 @@ namespace WonderCook.Controllers
 {
     public class InputController : Controller
     {
-        RecipeDatabaseEntities dbObj = new RecipeDatabaseEntities();
+        
+           RecipeDatabaseEntities dbObj = new RecipeDatabaseEntities();
         // GET: Input
         public ActionResult Index()
         {
@@ -43,26 +44,37 @@ namespace WonderCook.Controllers
             return View(dbObj.Recipes.ToList());
             //return View();
         }
+        [HttpGet]
+        public ActionResult ShowRecipesID()
+        {
+            Recipes a = new Recipes();
+            List<Recipes> recipeList = new List<Recipes>();
+            int recipeIDNumber = recipeList.Count();
+            ViewData["recipeIDNumber"] = recipeIDNumber.ToString();
+            
+
+            return View();
+        }
 
 
 
         //private RecipeAddViewModel obj;
         [HttpPost]
-        public ActionResult AddRecipesPost(RecipeAddViewModel model, HttpPostedFileBase imageRecipe)//,Macro_Ingredients model2,Ingredients model3
+        public ActionResult AddRecipesPost(RecipeAddViewModel model, HttpPostedFileBase imageRecipeFile)//,Macro_Ingredients model2,Ingredients model3
         {
             Recipes obj = new Recipes();
 
             
             obj.recipe_id = model.RecipesModel.recipe_id;
             obj.recipe_name = model.RecipesModel.recipe_name;
-            if (imageRecipe != null)
+            string path = uploadimage(imageRecipeFile);
+            if (path.Equals("-1")) { }
+            else
             {
-
-                model.RecipesModel.image = new byte[imageRecipe.ContentLength];
-                imageRecipe.InputStream.Read(model.RecipesModel.image, 0, imageRecipe.ContentLength);
+                obj.image = path;
 
             }
-            obj.image = model.RecipesModel.image;
+            //obj.image = model.RecipesModel.image;
             obj.how_to_make = model.RecipesModel.how_to_make;
 
           
@@ -73,7 +85,44 @@ namespace WonderCook.Controllers
          
             return View("AddRecipes");
         }
-        
+        public string uploadimage(HttpPostedFileBase imageRecipeFile)
+
+        {
+
+            Random r = new Random();
+            string path = "-1";
+            int random = r.Next();
+            if (imageRecipeFile != null && imageRecipeFile.ContentLength > 0)
+            {
+                string extension = Path.GetExtension(imageRecipeFile.FileName);
+                if (extension.ToLower().Equals(".jpg") || extension.ToLower().Equals(".jpeg") || extension.ToLower().Equals(".png"))
+                {
+                    try
+                    {
+                        path = Path.Combine(Server.MapPath("~/Content/upload"), random + Path.GetFileName(imageRecipeFile.FileName));
+                        imageRecipeFile.SaveAs(path);
+                        path = "~/Content/upload/" + random + Path.GetFileName(imageRecipeFile.FileName);
+                        //    ViewBag.Message = "File uploaded successfully";
+                    }
+                    catch (Exception ex)
+                    {
+                        path = "-1";
+                    }
+                }
+                else
+                {
+                    Response.Write("<script>alert('Only jpg ,jpeg or png formats are acceptable....'); </script>");
+                }
+
+            }
+            else
+            {
+                Response.Write("<script>alert('Please select a file'); </script>");
+                path = "-1";
+            }
+            return path;
+        }
+
         [HttpPost]
         public ActionResult AddIngredientsPost(RecipeAddViewModel model)//,Macro_Ingredients model2,Ingredients model3
         {
