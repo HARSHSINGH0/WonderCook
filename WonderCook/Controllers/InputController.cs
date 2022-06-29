@@ -24,7 +24,7 @@ namespace WonderCook.Controllers
         [HttpGet]//[HttpGet]
         public ActionResult AddRecipes()
         {
-            
+
             return View(new RecipeAddViewModel());
         }
         
@@ -48,12 +48,12 @@ namespace WonderCook.Controllers
         public ActionResult ShowRecipesID()
         {
             Recipes a = new Recipes();
-            List<Recipes> recipeList = new List<Recipes>();
-            int recipeIDNumber = recipeList.Count();
-            ViewData["recipeIDNumber"] = recipeIDNumber.ToString();
+            //List<Recipes> recipeList = new List<Recipes>();
+            //int recipeIDNumber = recipeList.Count();
+            //ViewData["recipeIDNumber"] = recipeIDNumber.ToString();
             
 
-            return View();
+            return View(dbObj.Recipes.ToList());
         }
 
 
@@ -72,7 +72,6 @@ namespace WonderCook.Controllers
             else
             {
                 obj.image = path;
-
             }
             //obj.image = model.RecipesModel.image;
             obj.how_to_make = model.RecipesModel.how_to_make;
@@ -81,12 +80,12 @@ namespace WonderCook.Controllers
 
             dbObj.Recipes.Add(obj);
             dbObj.SaveChanges();
-            
-         
+
+            ViewData["previousRecipeID"] = "The Last or Newly Inserted Id:"+obj.recipe_id;
+
             return View("AddRecipes");
         }
         public string uploadimage(HttpPostedFileBase imageRecipeFile)
-
         {
 
             Random r = new Random();
@@ -101,7 +100,9 @@ namespace WonderCook.Controllers
                     {
                         path = Path.Combine(Server.MapPath("~/Content/upload"), random + Path.GetFileName(imageRecipeFile.FileName));
                         imageRecipeFile.SaveAs(path);
-                        path = "~/Content/upload/" + random + Path.GetFileName(imageRecipeFile.FileName);
+                        //path = "~/Content/upload/" + random + Path.GetFileName(imageRecipeFile.FileName); this was the code previously used
+
+                        path = "/Content/upload/" + random + Path.GetFileName(imageRecipeFile.FileName);
                         //    ViewBag.Message = "File uploaded successfully";
                     }
                     catch (Exception ex)
@@ -137,7 +138,6 @@ namespace WonderCook.Controllers
 
             dbObj.Ingredients.Add(obj);
             dbObj.SaveChanges();
-            
             return View("AddRecipes");
         }
         [HttpPost]

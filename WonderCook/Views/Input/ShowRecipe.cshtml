@@ -35,20 +35,24 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     @*<script type="text/javascript">
-    // <![CDATA[
-        $(function () {
-            $(".overflow1").each(function (i) {
-                len = $(this).text().length;
-                if (len > 80) {
-                    $(this).text($(this).text().substr(0, 80) + '...');
-                }
-            });
-        });
-// ]]></script>*@
-    <p>
+            // <![CDATA[
+                $(function () {
+                    $(".overflow1").each(function (i) {
+                        len = $(this).text().length;
+                        if (len > 80) {
+                            $(this).text($(this).text().substr(0, 80) + '...');
+                        }
+                    });
+                });
+        // ]]></script>*@
+    <div class="btn-group btn-group-lg" role="group" aria-label="...">
+        <a class="btn btn-secondary" href="~/Input/AddRecipes">Add New</a>
+        <a class="btn btn-primary" href="~/Input/ShowRecipe">View All</a>
+    </div>
+    @*<p>
         <br />
         @Html.ActionLink("Create New", "AddRecipes")
-    </p>
+    </p>*@
     <table class="table" border="0">
         <tr>
             <th>
@@ -72,14 +76,14 @@
             <tr>
                 <td>
                     <span class="overflow1">@Html.DisplayFor(modelItem => item.recipe_name)</span>
-</td>
+                </td>
                 <td>
-                    <img src="@Html.DisplayFor(modelItem => item.image)" width="80px" height="50px"/>
-                                @*<span class="overflow1">@Html.DisplayFor(modelItem => item.image)</span>*@
-                            </td>
+                    <img src="@Html.DisplayFor(modelItem => item.image)" width="80px" height="50px" />
+                    @*<span class="overflow1">@Html.DisplayFor(modelItem => item.image)</span>*@
+                </td>
                 <td>
                     <span class="overflow1">@Html.DisplayFor(modelItem => item.how_to_make)</span>
-</td>
+                </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.recipe_id }, htmlAttributes: new { @class = "btn btn-primary" }) |
                     @Html.ActionLink("Details", "Details", new { id = item.recipe_id }) |
