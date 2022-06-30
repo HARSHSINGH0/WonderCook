@@ -1,0 +1,117 @@
+﻿
+@{
+	ViewBag.Title = "Menu";
+}
+
+<div class="container-fluid back">
+	<span class="text-head">
+		Wonder Cook
+	</span>
+	<!-- <a class="navbar-brand" href="#">
+		<img src="4.png" alt=""  class="menulogo rounded-circle">
+	</a> -->
+
+
+
+	<input type="search" class="searchbar searchbarfont" placeholder="   Find..." />
+	<!-- <i class="fa fa-search iconsearch1" style="color: rgb(206,39,39)" aria-hidden="true"></i> -->
+	<br>
+</div>
+
+<div class="container-fluid seconframe2">
+	<div class="form-group suggestion">
+		<div>
+			<br>
+			<div class="btn-group custom-class">
+				<button type="button" class="btn  sugbtn">
+					Key Ingredient(s)
+				</button>
+				&nbsp;&nbsp;
+				<button type="button" class="btn  sugbtn">
+					Exclude
+				</button>
+				&nbsp;&nbsp;
+				<button type="button" class="btn sugbtn round">
+					Meal Type
+				</button>
+				&nbsp;&nbsp;
+				<button type="button" class="btn  sugbtn round">
+					Missing One Ingredient
+				</button>
+				&nbsp;&nbsp;
+				<button type="button" class="btn sugbtn">
+					Video Only
+				</button>
+				&nbsp;&nbsp;
+				<button type="button" class="btn  sugbtn">
+					Cuisines
+				</button>
+				&nbsp;&nbsp;
+				<button type="button" class="btn  sugbtn">
+					Diet
+				</button>
+				&nbsp;&nbsp;
+				<button type="button" class="btn sugbtn">
+					Max Ingredient
+				</button>
+				&nbsp;&nbsp;
+				<button type="button" class="btn  sugbtn">
+					Rating
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<br>
+	<span class="lead result-text">
+		You can make 25 recipe
+	</span>
+	<br>
+
+	<span class="h6">Do you have?</span>
+	<button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">Garlic</button>
+	&nbsp;&nbsp;
+	<button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">tomato</button>
+	&nbsp;&nbsp;
+	<button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">onion</button>
+	&nbsp;&nbsp;
+	<button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">carrot</button>
+	&nbsp;
+	<button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">spinach</button>
+	&nbsp;
+	<button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">leek</button>
+	&nbsp;&nbsp;
+	<button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">carrot</button>
+	&nbsp;&nbsp;
+	<button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">spinach</button>
+	&nbsp;
+	<button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">leek</button>
+
+	<button type="button" id="button" value="button" class="btn" onclick="">+20 More</button>
+	<hr>
+	<!--Card Content/ Results-->
+	<div class="card-content">
+		<div class="col-sm-5">
+			<img class="card-img img-fluid rounded-start" src="herbs.png" alt="Suresh Dasari Card">
+		</div>
+		<div class="col-sm-7">
+			<div class="card-body">
+				<h5 class="card-title">Suresh Dasari</h5>
+				<p class="card-text">Suresh Dasari is a founder and technical lead developer in tutlane.</p>
+				<a href="#" class="btn btn-primary">View Profile</a>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<script>
+		function setColor(e, btn, color) {
+  var target = e.target,
+      count = +target.dataset.count;
+
+   target.style.backgroundColor = count === 1 ? "#ff8c00" : '#d3d3d3';
+   target.dataset.count = count === 1 ? 0 : 1;
+}
+</script>
+

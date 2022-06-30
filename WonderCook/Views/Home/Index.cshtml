@@ -4,103 +4,18 @@
 <head>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 	
-	<link href="~/Content/Site.css" rel="stylesheet" />
+	
 </head>
-<body class="menubackground">
+<body>
 
-	@*<div class="headerindex">
-			<img class="menulogo" src="~/Content/Images/1.png" alt="image" onclick="Index" />
+	<frameset cols="25%,75%">
+		<frame name="top" noresize src="SideView.cshtml" />
+		<frame name="main" src="Menu.cshtml" />
 
+		<noframes>
 
+			
+		</noframes>
 
-		</div>*@
-	<div class="container">
-		<a class="navbar-brand" href="#">
-			<img src="~/Content/Images/4.png" alt="" class="menulogo">
-		</a>
-		<div style="background:transparent !important" class="jumbotron">
-			<input type="search" class="searchbar searchbarfont" placeholder="Search for Recipes........" /><i class="fa fa-search fa-2xl iconsearch" style="color: rgb(206,39,39)" aria-hidden="true"></i>
-
-		</div>
-
-
-
-	</div>
-	<div class="row-no-gutters">
-
-		<div class="col-md-4">
-			<div class="leftcontent" id="leftside">
-				<div class="container" >
-					<div class="row">
-						<div class="col-md-12">
-							<br />
-							<br />
-							<div class="jumbotron jumbotron-fluid jd">
-								
-									
-									<button type="button" class="btn btn-outline-primary btn-lg">Primary</button>
-									<button type="button" class="btn btn-outline-secondary btn-lg">Secondary</button>
-									<button type="button" class="btn btn-outline-success btn-lg">Success</button>
-								
-							</div>
-
-						</div>
-
-					</div>
-					<div class="row">
-						<div class="col-md-12">
-							<br />
-							<br />
-							<div class="jumbotron jumbotron-fluid jd">
-								
-									<button type="button" class="btn btn-outline-primary btn-lg">Primary</button>
-									<button type="button" class="btn btn-outline-secondary btn-lg">Secondary</button>
-									<button type="button" class="btn btn-outline-success btn-lg">Success</button>
-								
-							</div>
-
-						</div>
-
-					</div>
-
-					<div class="row">
-						<div class="col-md-12">
-							<br />
-							<br />
-							<div class="jumbotron jumbotron-fluid jd">
-								
-									<button type="button" class="btn btn-outline-primary btn-lg">Primary</button>
-									<button type="button" class="btn btn-outline-secondary btn-lg">Secondary</button>
-									<button type="button" class="btn btn-outline-success btn-lg">Success</button>
-								
-							</div>
-
-						</div>
-
-					</div>
-
-					<div class="row">
-						<div class="col-md-12">
-							<br />
-							<br />
-							<div class="jumbotron jumbotron-fluid jd">
-								<div class="container">
-									<button type="button" class="btn btn-outline-primary btn-lg">Primary</button>
-									<button type="button" class="btn btn-outline-secondary btn-lg">Secondary</button>
-									<button type="button" class="btn btn-outline-success btn-lg">Success</button>
-								</div>
-							</div>
-
-						</div>
-
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-8">
-			<div class="rightcontent" id="rightside">
-				Right Content
-			</div>
-		</div>
-	</div>
+	</frameset>
 </body>
