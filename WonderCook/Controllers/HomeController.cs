@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WonderCook.Models;
 
 namespace WonderCook.Controllers
 {
     public class HomeController : Controller
     {
-        
+        RecipeDatabaseEntities dbObj = new RecipeDatabaseEntities();
         public ActionResult Index()
         {
             return View();
@@ -20,7 +21,14 @@ namespace WonderCook.Controllers
 
             return View();
         }
-
+        public ActionResult Menu()
+        {
+            return View();
+        }
+        public ActionResult SideView()
+        {
+            return View();
+        }
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
@@ -29,8 +37,11 @@ namespace WonderCook.Controllers
         }
         public ActionResult Recipe()
         {
-
-            return View();
+        
+                List<RecipeAddViewModel> viewModelAll = new List<RecipeAddViewModel>();
+            
+                viewModelAll.Add(new RecipeAddViewModel()); 
+                return View(dbObj.Recipes.ToList());//"recipe",viewModelAll.AsEnumerable()// dbObj.Recipes.ToList(), 
         }
         public ActionResult ChefInput()
         {

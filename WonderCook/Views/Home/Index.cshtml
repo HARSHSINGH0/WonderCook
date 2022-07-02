@@ -2,26 +2,9 @@
     ViewBag.Title = "Home";
 }
 <head>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-	
-	<link href="~/Content/Site.css" rel="stylesheet" />
-</head> 
-<body class="menubackground">
-    <div class="container-fluid grid-container">
-        <div class="grid-item grid-item-img">
-            <a class="" href="#">
-                <img src="~/Content/Images/4.png" alt="" class="menulogo">
-            </a>
-        </div>
-        <div class="gird-item grid-item-searchbar searchbarWITHfont ">
-            <input type="text" class="searchbar searchbarfont" placeholder="Search for Recipes........" />
-            <i class="fa fa-search fa-2xl iconsearch" style="color: rgb(206,39,39)" aria-hidden="true"></i>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
-        </div>
-    </div>
-    
-    <br />
-    <hr />
+    <link href="~/Content/Site.css" rel="stylesheet" />
     <style>
         .left {
             width: 33%;
@@ -32,17 +15,43 @@
             width: 33%;
             float: right;
         }
-
-        
     </style>
+</head> 
+<body class="menubackground">
+    <div class="">
+        <div class="grid-item grid-item-img">
+            <a class="" href="#">
+                <img src="~/Content/Images/4.png" alt="" class="menulogo">
+            </a>
+        </div>
+        <div class="gird-item grid-item-searchbar searchbarWITHfont ">
+            <input type="text" class="searchbar searchbarfont" placeholder="Search for Recipes........" />
+            <i class="fa fa-search fa-2xl iconsearch" style="color: rgb(206,39,39)" aria-hidden="true"></i>
 
-    <div id="parent">
-        <div class="left">
-            <div class="overflow-auto">
-                This is an example of using .overflow-auto on an element with set width and height dimensions. By design, this content will vertically scroll.This is an example of using .overflow-auto on an element with set width and height dimensions. By design, this content will vertically scroll.This is an example of using .overflow-auto on an element with set width and height dimensions. By design, this content will vertically scroll.This is an example of using .overflow-auto on an element with set width and height dimensions. By design, this content will vertically scroll.This is an example of using .overflow-auto on an element with set width and height dimensions. By design, this content will vertically scroll.This is an example of using .overflow-auto on an element with set width and height dimensions. By design, this content will vertically scroll.This is an example of using .overflow-auto on an element with set width and height dimensions. By design, this content will vertically scroll.This is an example of using .overflow-auto on an element with set width and height dimensions. By design, this content will vertically scroll.This is an example of using .overflow-auto on an element with set width and height dimensions. By design, this content will vertically scroll.This is an example of using .overflow-auto on an element with set width and height dimensions. By design, this content will vertically scroll.This is an example of using .overflow-auto on an element with set width and height dimensions. By design, this content will vertically scroll.This is an example of using .overflow-auto on an element with set width and height dimensions. By design, this content will vertically scroll.This is an example of using .overflow-auto on an element with set width and height dimensions. By design, this content will vertically scroll.This is an example of using .overflow-auto on an element with set width and height dimensions. By design, this content will vertically scroll. This is an example of using .overflow-auto on an element with set width and height dimensions. By design, this content will vertically scroll.
+        </div><br />
+        <hr />
+        <div id="parent">
+            <div class="left">
+                @{
+                    Html.RenderPartial("SideView");
+                }
             </div>
         </div>
-        <div class="left"> Section 2</div>
-        <div class="right"> Section 3</div>
+        <div class="right">
+            <div class="overflow-auto">
+
+                @{
+                    Html.RenderPartial("Menu");
+                }
+
+
+            </div>
+        </div>
     </div>
+    
+    
+    
+
+    
+        
 </body>

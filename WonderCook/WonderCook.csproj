@@ -195,6 +195,7 @@
     <Content Include="Content\Images\image assests\herbsand spices.png" />
     <Content Include="Content\Images\image assests\vegetables.png" />
     <Content Include="Content\landingstyle.css" />
+    <Content Include="Content\Site1.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -252,6 +253,8 @@
     <Content Include="Views\Home\ChefInput.cshtml" />
     <Content Include="Views\Input\AddRecipes.cshtml" />
     <Content Include="Views\Input\ShowRecipe.cshtml" />
+    <Content Include="Views\Home\Menu.cshtml" />
+    <Content Include="Views\Home\SideView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

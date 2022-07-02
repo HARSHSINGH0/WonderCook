@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<WonderCook.Models.Recipes>
 @{
     ViewBag.Title = "Recipe";
 }
@@ -13,7 +13,7 @@
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/0.11.1/typeahead.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="landingstyle.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/landingstyle.css">
     @* copied stuff *@
 </head>
 <body class="backgroundlanding">
@@ -32,5 +32,49 @@
         </div>
     </div>
     
+    
+    <table>
+        @{
+
+            int TotalRecipes = 0;
+            foreach (var item in Model)
+            {
+                TotalRecipes++;
+            }
+        }
+        @foreach (var item in Model)
+        {
+
+
+            if (item.recipe_id == 1)
+            { //item.RecipesModel.recipe_id
+        @Html.DisplayFor(modelItem => item.recipe_name, new { @class = "HeadingRecipe" })
+                <h3>Total Recipe Count @TotalRecipes</h3>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        <img src="@Html.DisplayFor(modelItem => item.image)" width="600px" height="400px" />
+                        @*<span class="overflow1">@Html.DisplayFor(modelItem => item.image)</span>*@
+                    </td>
+                    <td>
+                        <span class="overflow1">@Html.DisplayFor(modelItem => item.how_to_make) </span>
+                    </td>
+                </tr>
+                @*<tr>
+                    @foreach (var item2 in Model) {
+                            if (item.IngredientsModel.Recipes_recipe_id == 1) {
+                    <td>
+                        <span class="overflow1">@Html.DisplayFor(modelItem =>item.IngredientsModel.ingredient )</span>
+                    </td>
+                    <td>
+                        <span class="overflow1">@Html.DisplayFor(modelItem =>item.IngredientsModel.quantity) </span>
+                    </td>}
+                    }
+                </tr>*@
+
+            }
+        }
+    </table>
 
 </body>

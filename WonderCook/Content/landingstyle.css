@@ -8,7 +8,12 @@
     font-size: 18px;
     float: left;
 }
-
+.HeadingRecipe {
+    font-family: Consolas;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+}
 .empty-message {
     color: red;
     text-align: center;
