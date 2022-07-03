@@ -1,5 +1,20 @@
 ﻿body {
 }
+
+.backgroundlanding {
+    /*background: linear-gradient(192deg, #FEFEFE 46.58%, #FECDAA 52.6%, #FFA470 79.51%);*/
+    background: linear-gradient(315.74deg, #FEFEFE 46.58%, #FECDAA 52.6%, #FFA470 79.51%);
+    background-attachment: fixed;
+}
+.imageLandingBodyWhite {
+    height: 100%;
+    padding-left: 50px;
+    padding-right: 50px;
+    background: white;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+}
 .typeahead {
     padding: 15px 200px;
     width: 100% !important;
@@ -8,11 +23,48 @@
     font-size: 18px;
     float: left;
 }
-.HeadingRecipe {
+/*.HeadingRecipe {
     font-family: Consolas;
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
+}*/
+.IngredientPart {
+    max-width: 500px;
+    min-width: 500px;
+    display: inline-flex;
+}
+.HeadingRecipe {
+    font-family: sans-serif;
+    text-align-last: center;
+    font-weight: 700;
+    font-size: xx-large;
+    line-height: 44px;
+    /* identical to box height */
+    /*margin-top: -20px;*/
+    color: #ffffff;
+    text-shadow: 4px 3px 8px rgb(239 0 0 / 56%);
+    font-variant-caps: unicase;
+}
+.recipeIngredientName {
+    font-family: 'IBM Plex Sans';
+    font-weight: 700;
+    font-size: xx-large;
+    line-height: 52px;
+    /* identical to box height */
+    color: #000000;
+    position: inherit;
+    padding: 20px;
+}
+
+.imageLandingBIG {
+    margin-left: 2em;
+    margin-top: -10px;
+    min-width: 400px;
+    max-width: 400px;
+    /*border-radius: 20px;*/
+    box-shadow: 7px 11px 16px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
 }
 .empty-message {
     color: red;
@@ -39,7 +91,7 @@
     position: relative;
     width: 94%;
     border-bottom: 1px solid #d2d2d2;
-    ;
+    
     font-family: 'Roboto Condensed', sans-serif;
 }
 

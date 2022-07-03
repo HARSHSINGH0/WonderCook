@@ -2,17 +2,46 @@
     padding-top: 10px;
     padding-bottom: 20px;
     height: 100%;
-    overflow-y: hidden;
+    overflow: auto;
     background: #f3dbca;
 }
 
-.left {
+
+.imageMenuRecipe {
+    box-shadow: 6px 9px 7px -5px rgba(0, 0, 0, 0.25);
+    border-radius: 100px;
+
+}
+.bodyClass {
+    /*overflow:hidden;*/
     overflow: auto;
 }
-
-.right {
-    overflow: auto;
-    height: auto;
+.sideview {
+    overflow-y: scroll;
+}
+.menuview {
+    overflow-y: scroll;
+}
+.marginSpaceTop{
+    margin-top:20px;
+}
+.recipeNameFont {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-size: xx-large;
+    font-weight: 600;
+    /* identical to box height */
+    text-align: center;
+    color: rgba(0, 0, 0, 0.44);
+}
+.recipeNoOfIngredientFont {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-size: xx-large;
+    font-weight: 600;
+    /* identical to box height */
+    text-align: center;
+    color: rgba(0, 0, 0, 0.44);
 }
 /*Setting css for Main searchbar*/
 .searchbar1 {
@@ -114,7 +143,7 @@
     border: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    margin-top: 87.5px;
+    /*margin-top: 87.5px;*/
     margin-left: 5px;
     padding: 5px;
     height: 43px;
@@ -129,7 +158,7 @@
         border: none;
         -webkit-appearance: none;
         -moz-appearance: none;
-        margin-top: 87.5px;
+        /*margin-top: 87.5px;*/
         padding: 5px;
         height: 43px;
         width: 97%;
@@ -143,7 +172,7 @@
         border: none;
         -webkit-appearance: none;
         -moz-appearance: none;
-        margin-top: 87.5px;
+        /*margin-top: 87.5px;*/
         padding: 5px;
         height: 43px;
         width: 97%;
@@ -162,7 +191,7 @@
 
 .back {
     height: 150px;
-    margin-top: -9.6px;
+    /*margin-top: -9.6px;*/
     /* background: #ornage;
 	background: -webkit-linear-gradient(bottom, #FFFFFF, #FF6401, #e76f51,#f4a261,#fcbf49,#ffddd2,#fb5607);
 	background: -moz-linear-gradient(bottom, #FFFFFF, #FF6401);
@@ -231,9 +260,8 @@
 }
 
 .text-head {
-    position: absolute;
-    margin-left: 450px;
-    margin-top: 27px;
+    /*margin-left: 450px;*/
+    padding:10px;
     font-size: 35px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: 700;

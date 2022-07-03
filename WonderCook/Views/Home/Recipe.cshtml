@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<WonderCook.Models.Recipes>
 @{
     ViewBag.Title = "Recipe";
+    
 }
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -15,11 +16,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="~/Content/landingstyle.css">
     @* copied stuff *@
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Inter:wght@300&family=Roboto:wght@100&display=swap" rel="stylesheet">
 </head>
 <body class="backgroundlanding">
     <div class="container-fluid grid-container" style=" margin-top: -03%; max-height: 200px; ">
         <div class="col ">
-            <img src="~/Content/Images/2.png" style=" margin-top: -10%; min-width: 100px; max-width: 70%; border-radius: 50%; margin-left: 25%; " />
+            <img src="~/Content/Images/2.png" style=" margin-top: -10%; min-width: 100px; max-width: 85%; border-radius: 50%;  " />
 
         </div>
         <div class="col searchbarWITHfont">
@@ -32,49 +36,28 @@
         </div>
     </div>
     
-    
-    <table>
-        @{
+    <div>
 
-            int TotalRecipes = 0;
-            foreach (var item in Model)
-            {
-                TotalRecipes++;
-            }
-        }
         @foreach (var item in Model)
         {
+            int recipeIDTEST = 1;
+            recipeIDTEST = int.Parse(Url.RequestContext.RouteData.Values["id"].ToString());
 
-
-            if (item.recipe_id == 1)
+            if (item.recipe_id == recipeIDTEST)
             { //item.RecipesModel.recipe_id
-        @Html.DisplayFor(modelItem => item.recipe_name, new { @class = "HeadingRecipe" })
-                <h3>Total Recipe Count @TotalRecipes</h3>
-                <tr>
-                    <td>
-                    </td>
-                    <td>
-                        <img src="@Html.DisplayFor(modelItem => item.image)" width="600px" height="400px" />
-                        @*<span class="overflow1">@Html.DisplayFor(modelItem => item.image)</span>*@
-                    </td>
-                    <td>
-                        <span class="overflow1">@Html.DisplayFor(modelItem => item.how_to_make) </span>
-                    </td>
-                </tr>
-                @*<tr>
-                    @foreach (var item2 in Model) {
-                            if (item.IngredientsModel.Recipes_recipe_id == 1) {
-                    <td>
-                        <span class="overflow1">@Html.DisplayFor(modelItem =>item.IngredientsModel.ingredient )</span>
-                    </td>
-                    <td>
-                        <span class="overflow1">@Html.DisplayFor(modelItem =>item.IngredientsModel.quantity) </span>
-                    </td>}
-                    }
-                </tr>*@
+                <div class="HeadingRecipe">@Html.DisplayFor(modelItem => item.recipe_name, new { @class = "HeadingRecipe" })</div>
+                <br />
+                <div class="imageLandingBodyWhite">
+                    <img src="@Html.DisplayFor(modelItem => item.image)" class="imageLandingBIG" />
+                    @*<span class="overflow1">@Html.DisplayFor(modelItem => item.image)</span>*@
+                <div class="IngredientPart">
+                    <span class="recipeIngredientName">Ingredients:</span>
+                </div>
 
+
+                </div>
+                <span class="overflow1">@Html.DisplayFor(modelItem => item.how_to_make) </span>
             }
         }
-    </table>
-
+    </div>
 </body>

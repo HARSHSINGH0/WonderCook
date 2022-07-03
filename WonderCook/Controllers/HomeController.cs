@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -12,18 +15,18 @@ namespace WonderCook.Controllers
         RecipeDatabaseEntities dbObj = new RecipeDatabaseEntities();
         public ActionResult Index()
         {
-            return View();
+            return View(dbObj.Recipes.ToList());
         }
         public ActionResult Menu()
         {
-            return View();
+            
+            return View(dbObj.Recipes.ToList());
         }
         
 
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-
             return View();
         }
         
@@ -45,6 +48,15 @@ namespace WonderCook.Controllers
                 viewModelAll.Add(new RecipeAddViewModel()); 
                 return View(dbObj.Recipes.ToList());//"recipe",viewModelAll.AsEnumerable()// dbObj.Recipes.ToList(), 
         }
+        //public ActionResult Recipe(int id)
+        //{
+        
+        //        List<RecipeAddViewModel> viewModelAll = new List<RecipeAddViewModel>();
+                
+        //        viewModelAll.Add(new RecipeAddViewModel()); 
+        //        return View(dbObj.Recipes.ToList());//"recipe",viewModelAll.AsEnumerable()// dbObj.Recipes.ToList(), 
+        //}
+
         public ActionResult ChefInput()
         {
             return View();
