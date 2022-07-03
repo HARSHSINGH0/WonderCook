@@ -14,6 +14,11 @@ namespace WonderCook.Controllers
         {
             return View();
         }
+        public ActionResult Menu()
+        {
+            return View();
+        }
+        
 
         public ActionResult About()
         {
@@ -21,10 +26,7 @@ namespace WonderCook.Controllers
 
             return View();
         }
-        public ActionResult Menu()
-        {
-            return View();
-        }
+        
         public ActionResult SideView()
         {
             return View();
