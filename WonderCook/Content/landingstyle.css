@@ -74,8 +74,8 @@
 .imageLandingBIG {
     margin-left: 2em;
     margin-top: -10px;
-    min-width: 400px;
-    max-width: 400px;
+    min-width: 33%;
+    max-width: 600px;
     /*border-radius: 20px;*/
     box-shadow: 7px 11px 16px 5px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
