@@ -87,7 +87,70 @@
 	&nbsp;
 	<button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">leek</button>
 
-	<button type="button" id="button" value="button" class="btn" onclick="">+20 More</button>
+	&nbsp;&nbsp;&nbsp;
+	<a class="btn" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+		+20 More
+	</a>
+	<div class="collapse" id="collapseExample">
+		<div class="card card-body">
+			<div class="row">
+				<div class="col-md-12">
+					<button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">leek</button>
+					&nbsp;
+					<button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
+					&nbsp;&nbsp;
+					<button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
+					&nbsp;&nbsp;
+
+					<button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">leek</button>
+					&nbsp;
+					<button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
+					&nbsp;&nbsp;
+					<button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
+					&nbsp;&nbsp;
+
+					<button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">leek</button>
+					&nbsp;
+					<button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
+					&nbsp;&nbsp;
+					<button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
+					&nbsp;&nbsp;
+
+
+					<button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">leek</button>
+					&nbsp;
+					<button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
+					&nbsp;&nbsp;
+					<button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
+					&nbsp;&nbsp;
+				</div>
+				<div class="col-md-12">
+					<button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">leek</button>
+					&nbsp;
+					<button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
+					&nbsp;&nbsp;
+					<button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
+					&nbsp;&nbsp;
+
+					<button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">leek</button>
+					&nbsp;
+					<button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
+					&nbsp;&nbsp;
+					<button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
+					&nbsp;&nbsp;
+
+					<button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">leek</button>
+					&nbsp;
+					<button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
+
+				</div>
+
+
+			</div>
+
+			<br>
+		</div>
+	</div>
 	<hr>
 	<!--Card Content/ Results-->
 	<div class="card-content">
@@ -106,12 +169,11 @@
 </div>
 
 <script>
-		function setColor(e, btn, color) {
-  var target = e.target,
-      count = +target.dataset.count;
+	function setColor(e, btn, color) {
+		var target = e.target,
+			count = +target.dataset.count;
 
-   target.style.backgroundColor = count === 1 ? "#ff8c00" : '#d3d3d3';
-   target.dataset.count = count === 1 ? 0 : 1;
-}
+		target.style.backgroundColor = count === 1 ? "#ff8c00" : '#d3d3d3';
+		target.dataset.count = count === 1 ? 0 : 1;
+	}
 </script>
-

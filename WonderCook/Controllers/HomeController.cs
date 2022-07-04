@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WonderCook.Models;
 
 namespace WonderCook.Controllers
 {
@@ -25,6 +26,14 @@ namespace WonderCook.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        [HttpPost]
+        public JsonResult Getemp(string Recipe_name)
+        {
+            RecipesModelContainer sdb = new RecipesModelContainer();
+            var recipe = (from x in sdb.Recipes where x.recipe_name.StartsWith(Recipe_name) select new { label = x.recipe_name }).ToList();
+            return Json(recipe);
         }
     }
 }

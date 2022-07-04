@@ -8,14 +8,45 @@
 </head>
 <body>
 
-	<frameset cols="25%,75%">
-		<frame name="top" noresize src="SideView.cshtml" />
-		<frame name="main" src="Menu.cshtml" />
+	@*<frameset cols="25%,75%">
+			<frame name="top" noresize src="SideView.cshtml" />
+			<frame name="main" src="Menu.cshtml" />
 
-		<noframes>
+			<noframes>
 
-			
-		</noframes>
 
-	</frameset>
+			</noframes>
+
+		</frameset>*@
+
+	<link href="~/Content/Site.css" rel="stylesheet" />
+	<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.8.0.js"></script>
+	<script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.22/jquery-ui.js"></script>
+	<link rel="Stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/themes/redmond/jquery-ui.css" />
+
+	<script>
+	$(function () {
+		$("#txtrecipename").autocomplete({
+			source: function (request, response) {
+				$.ajax({
+					url: "/Home/Getemp/",
+					data: "{'recipe_name':'" + request.term + "'}",
+					dataType: "json",
+					type: "POST",
+					contentType: "application/json; charset=utf-8",
+					success: function (data) {
+						response($.map(data, function (item) {
+							return item;
+						}))
+					},
+				});
+			},
+			minLength: 1
+		});
+	})
+	</script>
+
+
+	<input type="text" id="txtrecipename" name="Recipe_name" class="searchbar searchbarfont" placeholder="   Find..." />
+
 </body>
