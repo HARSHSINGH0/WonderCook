@@ -15,7 +15,9 @@ namespace WonderCook.Controllers
         RecipeDatabaseEntities dbObj = new RecipeDatabaseEntities();
         public ActionResult Index()
         {
-            return View(dbObj.Recipes.ToList());
+            //List<RecipeAddViewModel> viewModelAll = new List<RecipeAddViewModel>();
+            
+            return View(dbObj.Recipes.ToList());//(viewModelAll.ToList()
         }
         public ActionResult Menu()
         {
@@ -42,11 +44,17 @@ namespace WonderCook.Controllers
         }
         public ActionResult Recipe()
         {
-        
-                List<RecipeAddViewModel> viewModelAll = new List<RecipeAddViewModel>();
+
+            //List<RecipeAddViewModel> viewModelAll = new List<RecipeAddViewModel>();
+
+            //viewModelAll.Add(new RecipeAddViewModel()); 
+            //return View(viewModelAll.ToList());//"recipe",viewModelAll.AsEnumerable()// dbObj.Recipes.ToList(), //
+            RecipeAddViewModelList model = new RecipeAddViewModelList();
             
-                viewModelAll.Add(new RecipeAddViewModel()); 
-                return View(dbObj.Recipes.ToList());//"recipe",viewModelAll.AsEnumerable()// dbObj.Recipes.ToList(), 
+            model.RecipesModel = dbObj.Recipes.ToList();
+            model.IngredientsModel = dbObj.Ingredients.ToList();
+            model.Macro_IngredientsModel = dbObj.Macro_Ingredients.ToList();
+            return View(model);
         }
         //public ActionResult Recipe(int id)
         //{

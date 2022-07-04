@@ -14,6 +14,19 @@
     position: absolute;
     left: 0px;
     right: 0px;
+    display: flex;
+    flex-direction:row; 
+}
+.IngredientDisplay {
+    max-width: 400px;
+    font-family: 'IBM Plex Sans';
+    font-weight: 200;
+    padding-left: 20px;
+    font-size: large;
+    /*line-height: 52px;*/
+    /* identical to box height */
+    color: #000000;
+    position: inherit;
 }
 .typeahead {
     padding: 15px 200px;
@@ -30,9 +43,10 @@
     font-size: 20px;
 }*/
 .IngredientPart {
-    max-width: 500px;
-    min-width: 500px;
-    display: inline-flex;
+    max-width: 33%;
+    min-width: 33%;
+
+    /*display: inline-flex;*/
 }
 .HeadingRecipe {
     font-family: sans-serif;

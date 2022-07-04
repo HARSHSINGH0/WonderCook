@@ -142,6 +142,7 @@
       <DependentUpon>RecipeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\RecipeAddViewModel.cs" />
+    <Compile Include="Models\RecipeAddViewModelList.cs" />
     <Compile Include="Models\RecipeModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
