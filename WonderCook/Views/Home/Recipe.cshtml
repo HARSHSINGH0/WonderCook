@@ -38,35 +38,57 @@
         </div>
     </div>
     
-    <div>
+    <div class="Main">
+        @{int recipeIDTEST; }
         @foreach (var item in Model.RecipesModel)
         {
-            int recipeIDTEST = 1;
-            //recipeIDTEST = int.Parse(Url.RequestContext.RouteData.Values["id"].ToString());//Url.RequestContext.RouteData.Values["id"].ToString()
+
+            recipeIDTEST = int.Parse(Url.RequestContext.RouteData.Values["id"].ToString());//Url.RequestContext.RouteData.Values["id"].ToString()
 
             if (item.recipe_id == recipeIDTEST)
             { //item.RecipesModel.recipe_id
                 <div class="HeadingRecipe">@Html.DisplayFor(modelItem => item.recipe_name, new { @class = "HeadingRecipe" })</div>
                 <br />
                 <div class="imageLandingBodyWhite">
-                    
-                    <div><img src="@Html.DisplayFor(modelItem => item.image)" class="imageLandingBIG" /></div>  
-                    
+
+                    <div><img src="@Html.DisplayFor(modelItem => item.image)" class="imageLandingBIG" /></div>
+
                     @*<span class="overflow1">@Html.DisplayFor(modelItem => item.image)</span>*@
-                    
-                <div class="IngredientPart">
-                    <span class="recipeIngredientName">Ingredients:</span>
-                    @foreach (var Ingr in Model.IngredientsModel)
-                    {
-                        if (Ingr.Recipes_recipe_id == item.recipe_id)
+
+                    <div class="IngredientPart">
+                        <span class="recipeIngredientName">Ingredients:</span>
+                        @foreach (var Ingr in Model.IngredientsModel)
                         {
-                            <div class="IngredientDisplay">@Html.DisplayFor(modelItem => Ingr.ingredient, new { @class = "" }) @Html.DisplayFor(modelItem => Ingr.quantity, new { @class = "" })</div>
+                            if (Ingr.Recipes_recipe_id == item.recipe_id)
+                            {
+                                <div class="IngredientDisplay">@Html.DisplayFor(modelItem => Ingr.ingredient, new { @class = "" }) @Html.DisplayFor(modelItem => Ingr.quantity, new { @class = "" })</div>
+
+                            }
                         }
-                    }
+
+                    </div>
+                    <div class="MacroIngredientsPart">
+                        <span class="NutritionFact">Nutrition Facts</span>
+                        <hr style="height: 8px; background-color: #4e4d4d; border: none; " />
+                        @foreach (var Macro in Model.Macro_IngredientsModel)
+                        {
+                            if (Macro.Recipes_recipe_id == item.recipe_id)
+                            {
+                                <div class="MacrosLine">@Html.DisplayFor(modelItem => Macro.nutrient) @Html.DisplayFor(modelItem => Macro.amount)</div>
+                                <hr style="height: 1px; background-color: #4e4d4d; border: none; line-height:10" />
+                            }
+                        }
+                    </div>
+
+
+
                 </div>
-                    <span class="overflow1">@Html.DisplayFor(modelItem => item.how_to_make) </span>
+                <div class="HowtoCookPart">
+                    <span class="recipeIngredientName">How to Cook:</span>
+                    <span class="">@Html.DisplayFor(modelItem => item.how_to_make) </span>
                 </div>
-                
+
+
             }
         }
     </div>
