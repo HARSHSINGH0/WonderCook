@@ -16,7 +16,6 @@ namespace WonderCook.Controllers
         public ActionResult Index()
         {
             //List<RecipeAddViewModel> viewModelAll = new List<RecipeAddViewModel>();
-            
             return View(dbObj.Recipes.ToList());//(viewModelAll.ToList()
         }
         public ActionResult Menu()
@@ -24,7 +23,18 @@ namespace WonderCook.Controllers
             
             return View(dbObj.Recipes.ToList());
         }
-        
+        public ActionResult SearchView()
+        {
+            return View();
+        }
+        [HttpPost]
+        public JsonResult Getrecipes(string term)
+        {
+            
+            List<string> RecipesString = dbObj.Recipes.Where(s => s.recipe_name.StartsWith(term)).Select(x => x.recipe_name).ToList();
+
+            return Json(RecipesString, JsonRequestBehavior.AllowGet);
+        }
 
         public ActionResult About()
         {
