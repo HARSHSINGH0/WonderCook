@@ -113,11 +113,13 @@
         <tr>
             <td class="marginSpaceTop">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <img src="@Html.DisplayFor(modelItem => item.image)" width="200px" height="100px" class="imageMenuRecipe" />
-                @*<span class="overflow1">@Html.DisplayFor(modelItem => item.image)</span>*@
-            </td>
-            <td class="marginSpaceTop"><a href="~/Home/Recipe/@item.recipe_id">
-    &nbsp;&nbsp;&nbsp;<span class="recipeNameFont">@Html.DisplayFor(modelItem => item.recipe_name)</span>
+                <a href="~/Home/Recipe/@item.recipe_id">
+                    <img src="@Html.DisplayFor(modelItem => item.image)" width="200px" height="100px" class="imageMenuRecipe" /></a>
+                    @*<span class="overflow1">@Html.DisplayFor(modelItem => item.image)</span>*@
+</td>
+            <td class="marginSpaceTop">
+    &nbsp;&nbsp;&nbsp;<a href="~/Home/Recipe/@item.recipe_id">
+    <span class="recipeNameFont">@Html.DisplayFor(modelItem => item.recipe_name)</span>
 </a>
             </td>
         </tr>

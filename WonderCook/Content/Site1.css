@@ -6,7 +6,10 @@
     background: #f3dbca;
 }
 
-
+.marginSpaceTop a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
 .imageMenuRecipe {
     box-shadow: 5px 5px 05px -5px rgb(5 10 10 / 50%);
     /* border-radius: 3px; */
