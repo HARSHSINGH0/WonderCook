@@ -257,6 +257,7 @@
     <Content Include="Views\Home\Menu.cshtml" />
     <Content Include="Views\Home\SideView.cshtml" />
     <Content Include="Views\Home\SearchView.cshtml" />
+    <Content Include="Views\Home\buttonCheck.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

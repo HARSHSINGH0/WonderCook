@@ -23,6 +23,11 @@ namespace WonderCook.Controllers
             
             return View(dbObj.Recipes.ToList());
         }
+        //public ActionResult Menu(List<string> AllIngredients_posted)
+        //{
+        //    List<string> AllIngredients_posted1 = AllIngredients_posted;
+        //    return View(dbObj.Recipes.ToList());
+        //}
         public ActionResult SearchView()
         {
             return View();
@@ -35,7 +40,10 @@ namespace WonderCook.Controllers
 
             return Json(RecipesString, JsonRequestBehavior.AllowGet);
         }
-
+        public ActionResult buttonCheck()
+        {
+            return View();
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -44,7 +52,23 @@ namespace WonderCook.Controllers
         
         public ActionResult SideView()
         {
+            //List<string> AllIngredient=new List<string>();
+            //AllIngredient.Add("test");
+
             return View();
+        }
+        //[HttpPost]
+        //public ActionResult SideViewPost()//,Macro_Ingredients model2,Ingredients model3
+        //{
+            
+        //    return View();//this may give error if there is no input or something i dont know that i m saying
+        //}
+        [HttpPost]
+        public ActionResult SideViewPost(List<string> ALLingredients_post)//,Macro_Ingredients model2,Ingredients model3
+        {
+            //Recipe(ALLingredients_post);
+            
+            return View();//this may give error if there is no input or something i dont know that i m saying
         }
         public ActionResult Contact()
         {
@@ -66,6 +90,7 @@ namespace WonderCook.Controllers
             model.Macro_IngredientsModel = dbObj.Macro_Ingredients.ToList();
             return View(model);
         }
+        
         //public ActionResult Recipe(int id)
         //{
         

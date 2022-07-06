@@ -10,6 +10,7 @@ namespace WonderCook.Models
         public List<Recipes> RecipesModel { get; set; }
         public List<Macro_Ingredients> Macro_IngredientsModel { get; set; }
         public List<Ingredients> IngredientsModel { get; set; }
+        
     }
 }
 

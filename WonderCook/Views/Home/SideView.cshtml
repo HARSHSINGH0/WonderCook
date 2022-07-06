@@ -4,18 +4,57 @@
 }
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-
+    <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
     <link href="~/Content/Site1.css" rel="stylesheet" />
+    <script>
+        //function onLoadStuffs() {
+        //    const AllIngredients = [];
+        //}
+        function setColor(e, btn, color) {
+            var target = e.target, count = +target.dataset.count;
+
+            target.style.backgroundColor = count === 1 ? "#ff8c00" : '#ffffff';
+            target.dataset.count = count === 1 ? 0 : 1;
+
+        }
+
+        const AllIngredients = [];
+
+        function inputIngredient(objButton) {
+
+
+            //AllIngredients.push("test");
+
+            AllIngredients.push(objButton.value);
+            alert(AllIngredients);
+            //if (collect(AllIngredients).contains(objButton.value)) {
+
+            //    AllIngredients.pop(objButton.value);
+            //}
+            //else {
+            //    alert(objButton.value);
+            //    AllIngredients.push(objButton.value);
+            //}
+            //return AllIngredients;
+        }
+        function GotoRecipe() {
+            //alert("test");
+            window.open('@Url.Action("Menu", "Home")', new { AllIngredients_posted=AllIngredients });
+        }
+    </script>
 </head>
-<body >
-    @*<div class="container-fluid back">
+
+@*<div class="container-fluid back">
         <a class="navbar-brand" href="#">
-             <img src="4.png" alt=""  class="menulogo rounded-circle"> 
+             <img src="4.png" alt=""  class="menulogo rounded-circle">
         </a>
         <input type="search" class="searchbar searchbarfont" placeholder="Search for Ingredients...." />
         <i class="fa fa-search iconsearch" style="color: rgb(206,39,39)" aria-hidden="true"></i>
 
     </div>*@
+@using (Html.BeginForm("SideViewPost", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()//Using AntiForgeryToken helps mitigate against cross-site request forgery attacks.
 
     <div class="container-fluid seconframe">
         <br>
@@ -28,31 +67,31 @@
                 &nbsp;&nbsp;&nbsp;0/30 Ingredients
                 <hr style="width: 100%;">
 
-                <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">Garlic</button>
+                <button type="button" id="button" value="Garlic" class="btn" onclick="setColor(event, 'button', ''), GotoRecipe()" ; data-count="1">Go </button>
                 &nbsp;&nbsp;
-                <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">tomato</button>
+                <button type="button" id="button" value="tomato" class="btn" onclick="setColor(event, 'button', ''), inputIngredient(this)" ; data-count="1">tomato</button>
                 &nbsp;&nbsp;
-                <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">onion</button>
+                <button type="button" id="button" value="onion" class="btn" onclick="setColor(event, 'button', ''), inputIngredient(this)" ; data-count="1">onion</button>
 
                 <br>
                 <br>
-                <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">carrot</button>
+                <button type="button" id="button" value="carrot" class="btn" onclick="setColor(event, 'button', ''), inputIngredient(this)" ; data-count="1">carrot</button>
                 &nbsp;&nbsp;
-                <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">spinach</button>
+                <button type="button" id="button" value="spinach" class="btn" onclick="setColor(event, 'button', ''), inputIngredient(this)" ; data-count="1">spinach</button>
                 &nbsp;&nbsp;
-                <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">leek</button>
+                <button type="button" id="button" value="leek" class="btn" onclick="setColor(event, 'button', ''), inputIngredient(this)" ; data-count="1">leek</button>
                 <br>
                 <br>
-                <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
+                <button type="button" id="button" value="celery" class="btn" onclick="setColor(event, 'button', ''), inputIngredient(this)" ; data-count="1">celery</button>
                 &nbsp;&nbsp;
-                <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">cabbage</button>
+                <button type="button" id="button" value="cabbage" class="btn" onclick="setColor(event, 'button', ''), inputIngredient(this)" ; data-count="1">cabbage</button>
                 &nbsp;&nbsp;
-                <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">kale</button>
+                <button type="button" id="button" value="kale" class="btn" onclick="setColor(event, 'button', ''), inputIngredient(this)" ; data-count="1">kale</button>
                 <br>
                 <br>
-                <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
+                <button type="button" id="button" value="celery" class="btn" onclick="setColor(event, 'button', ''), inputIngredient(this)" ; data-count="1">celery</button>
                 &nbsp;&nbsp;
-                <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">+20 More</button>
+                <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', ''), inputIngredient(this)" ; data-count="1">+20 More</button>
             </div>
         </div>
         <br>
@@ -102,7 +141,7 @@
                 &nbsp;&nbsp;&nbsp;0/30 Ingredients
                 <hr style="width: 105%;">
 
-                <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">Garlic</button>
+                <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" data-count="1">Garlic</button>
                 &nbsp;&nbsp;
                 <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">tomato</button>
                 &nbsp;&nbsp;
@@ -167,15 +206,8 @@
             </div>
         </div>
     </div>
-    <script>
-		function setColor(e, btn, color) {
-			var target = e.target,
-				count = +target.dataset.count;
+    }
 
-			target.style.backgroundColor = count === 1 ? "#ff8c00" : '#d3d3d3';
-			target.dataset.count = count === 1 ? 0 : 1;
-		}
-    </script>
 
-</body>
+
 
