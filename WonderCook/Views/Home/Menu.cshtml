@@ -1,0 +1,131 @@
+﻿@model IEnumerable<WonderCook.Models.Recipes>
+@{
+    ViewBag.Title = "Menu";
+}
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <link href="~/Content/Site1.css" rel="stylesheet" />
+
+    <script>
+        function setColor(e, btn, color) {
+            var target = e.target,
+                count = +target.dataset.count;
+
+            target.style.backgroundColor = count === 1 ? "#ff8c00" : '#d3d3d3';
+            target.dataset.count = count === 1 ? 0 : 1;
+        }
+    </script>
+
+
+</head>
+<div class="container-fluid back">
+
+    <span class="text-head">
+        Your Recipes....
+    </span>
+    <!-- <a class="navbar-brand" href="#">
+        <img src="4.png" alt=""  class="menulogo rounded-circle">
+    </a> -->
+
+    <input type="search" class="searchbar searchbarfont" placeholder="   Find..." />
+    <!-- <i class="fa fa-search iconsearch1" style="color: rgb(206,39,39)" aria-hidden="true"></i> -->
+    <br>
+</div>
+
+<div class="container-fluid seconframe2">
+    <div class="form-group suggestion">
+        <div>
+            <br>
+            <div class="btn-group custom-class">
+                <button type="button" class="btn  sugbtn">
+                    Key Ingredient(s)
+                </button>
+                &nbsp;&nbsp;
+                <button type="button" class="btn btn-outline-warning">
+                    Exclude
+                </button>
+                &nbsp;&nbsp;
+                <button type="button" class="btn btn-outline-warning">
+                    Meal Type
+                </button>
+                &nbsp;&nbsp;
+                <button type="button" class="btn btn-outline-warning">
+                    Missing One Ingredient
+                </button>
+                &nbsp;&nbsp;
+                <button type="button" class="btn btn-outline-warning">
+                    Video Only
+                </button>
+                &nbsp;&nbsp;
+                <button type="button" class="btn btn-outline-warning">
+                    Cuisines
+                </button>
+                &nbsp;&nbsp;
+                <button type="button" class="btn btn-outline-warning">
+                    Diet
+                </button>
+                &nbsp;&nbsp;
+                <button type="button" class="btn btn-outline-warning">
+                    Max Ingredient
+                </button>
+                &nbsp;&nbsp;
+                <button type="button" class="btn btn-outline-warning">
+                    Rating
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <span class="lead result-text">
+        You can make 25 recipe
+    </span>
+    <br>
+
+    <span class="h6">Do you have?</span>
+    <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">Garlic</button>
+    &nbsp;&nbsp;
+    <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">tomato</button>
+    &nbsp;&nbsp;
+    <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">onion</button>
+    &nbsp;&nbsp;
+    <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">carrot</button>
+    &nbsp;
+    <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">spinach</button>
+    &nbsp;
+    <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">leek</button>
+    &nbsp;&nbsp;
+    <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">carrot</button>
+    &nbsp;&nbsp;
+    <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">spinach</button>
+    &nbsp;
+    <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">leek</button>
+
+    <button type="button" id="button" value="button" class="btn" onclick="">+20 More</button>
+    <hr>
+    <table>
+
+        <!--Card Content/ Results-->
+        @foreach (var item in Model)
+        {
+
+        <tr>
+            <td class="marginSpaceTop">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="~/Home/Recipe/@item.recipe_id">
+                    <img src="@Html.DisplayFor(modelItem => item.image)" width="200px" height="100px" class="imageMenuRecipe" /></a>
+                    @*<span class="overflow1">@Html.DisplayFor(modelItem => item.image)</span>*@
+</td>
+            <td class="marginSpaceTop">
+    &nbsp;&nbsp;&nbsp;<a href="~/Home/Recipe/@item.recipe_id">
+    <span class="recipeNameFont">@Html.DisplayFor(modelItem => item.recipe_name)</span>
+</a>
+            </td>
+        </tr>
+            
+
+        }
+    </table>
+
+</div>

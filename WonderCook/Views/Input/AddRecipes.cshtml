@@ -1,0 +1,193 @@
+﻿@using WonderCook.Models;
+@*@model IEnumerable<WonderCook.Models.RecipeAddViewModel>*@ 
+@model RecipeAddViewModel
+@{
+    ViewBag.Title = "AddRecipes";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddRecipes</title>
+</head>
+<body>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        
+    @*<ul class="nav nav-item" id="myTab" role="tablist">
+        <li class="nav-tabs">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#firstTab" role="tab" aria-controls="home" aria-selected="true">Add New</a>
+        </li>
+        <li class="nav-tabs">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#secondTab" role="tab" aria-controls="profile" aria-selected="false">View All</a>
+        </li>
+    </ul>*@
+<div class="btn-group btn-group-lg" role="group" aria-label="...">
+    <a class="btn btn-primary" href="~/Input/AddRecipes">Add New</a>
+    <a class="btn btn-secondary" href="~/Input/ShowRecipe">View All</a>
+</div>
+    <hr />
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="firstTab" role="tabpanel" aria-labelledby="home-tab">
+            <div class="form-horizontal">
+                
+                    
+                 
+                        @using (Html.BeginForm("AddRecipesPost", "Input", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()//Using AntiForgeryToken helps mitigate against cross-site request forgery attacks.
+
+                            <h4>Recipes</h4>
+                            <hr />
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.RecipesModel.recipe_name, htmlAttributes: new { @class = "control-label col-md-2" })
+                                
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.RecipesModel.recipe_name, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.RecipesModel.recipe_name, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.RecipesModel.image, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @*@Html.EditorFor(model => model.RecipesModel.image, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.RecipesModel.image, "", new { @class = "text-danger" })*@
+                                    @* <img src="@Url.Content(model.RecipesModel.image)" id="imagePreview" />*@
+                                    @*@Html.DisplayFor(model=> model.RecipesModel.image)*@
+                                    <input type="file" name="imageRecipeFile" class="btn btn-outline-primary" accept="image/jpeg , image/png,image/jpg" id="imageRecipeFile" onchange="fileCheck(this);" /> @*onchange="ShowImagePreview(this, document.getElementById('imagePreview'))"*@
+
+                                    @*@Html.TextBoxFor(m => m.RecipesModel.image, new { type = "file", placeholder = Html.DisplayNameFor(m => m.RecipesModel.image), @class = "form-control", accept = "image/jpeg,  image/jpg" })*@
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.RecipesModel.how_to_make, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.RecipesModel.how_to_make, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.RecipesModel.how_to_make, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                <div class="form-group">
+                                
+                                <div class="col-md-10">
+                                    @ViewData["previousRecipeID"]
+                            </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Insert" class="btn btn-success" />
+                                </div>
+                            </div>
+
+
+
+
+                        }
+                    </div>
+
+                    <div class="form-horizontal">
+
+                        @using (Html.BeginForm("AddIngredientsPost", "Input", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+
+                            <div class="form-horizontal">
+                                <h4>Ingredients</h4>
+                                <hr />
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.IngredientsModel.Recipes_recipe_id, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.IngredientsModel.Recipes_recipe_id, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.IngredientsModel.Recipes_recipe_id, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.IngredientsModel.ingredient, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.IngredientsModel.ingredient, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.IngredientsModel.ingredient, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.IngredientsModel.quantity, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.IngredientsModel.quantity, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.IngredientsModel.quantity, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Add Nutrient" class="btn btn-danger" />
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                    <div class="form-horizontal">
+
+                        @using (Html.BeginForm("AddMacroIngredientsPost", "Input", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-horizontal">
+                                <h4>Macro_Ingredients</h4>
+                                <hr />
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Macro_IngredientsModel.Recipes_recipe_id, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Macro_IngredientsModel.Recipes_recipe_id, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Macro_IngredientsModel.Recipes_recipe_id, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Macro_IngredientsModel.nutrient, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Macro_IngredientsModel.nutrient, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Macro_IngredientsModel.nutrient, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Macro_IngredientsModel.amount, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Macro_IngredientsModel.amount, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Macro_IngredientsModel.amount, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Add Macros" class="btn btn-warning" />
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+        @* Tab two *@
+    <div class="tab-pane fade" id="secondTab" role="tabpanel" aria-labelledby="profile-tab">
+
+        
+    </div>
+    </div>
+    </body>
+</html>

@@ -1,0 +1,211 @@
+﻿body {
+}
+
+.backgroundlanding {
+    /*background: linear-gradient(192deg, #FEFEFE 46.58%, #FECDAA 52.6%, #FFA470 79.51%);*/
+    background: linear-gradient(315.74deg, #FEFEFE 46.58%, #FECDAA 52.6%, #FFA470 79.51%);
+    background-attachment: fixed;
+}
+/*.Main {
+    width:min-content;
+    left:0px;
+    right:0px;
+    height:100%;
+    position:absolute;
+}*/
+.imageLandingBodyWhite {
+    /*height: 100%;*/
+    padding-left: 50px;
+    padding-bottom: 50px;
+    padding-right: 50px;
+    background: white;
+    /*position: absolute;*/
+    left: 0px;
+    right: 0px;
+    display: flex;
+    flex-direction: row;
+}
+.HowtoCookPart {
+    position:relative;
+    padding-left: 50px;
+    padding-right: 50px;
+    background: white;
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    min-block-size:50%;
+    max-block-size:50%;
+}
+.IngredientDisplay {
+    max-width: 400px;
+    font-family: 'IBM Plex Sans';
+    font-weight: 200;
+    padding-left: 20px;
+    font-size: large;
+    /*line-height: 52px;*/
+    /* identical to box height */
+    color: #000000;
+    position: inherit;
+}
+.typeahead {
+    padding: 15px 200px;
+    width: 100% !important;
+    background-color: #fff !important;
+    padding-left: 40px !important;
+    font-size: 18px;
+    float: left;
+}
+/*.HeadingRecipe {
+    font-family: Consolas;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+}*/
+.IngredientPart {
+    max-width: 33%;
+    min-width: 33%;
+
+    /*display: inline-flex;*/
+}
+.HeadingRecipe {
+    font-family: sans-serif;
+    text-align-last: center;
+    font-weight: 700;
+    font-size: xx-large;
+    line-height: 44px;
+    /* identical to box height */
+    /*margin-top: -20px;*/
+    color: #ffffff;
+    text-shadow: 4px 3px 8px rgb(239 0 0 / 56%);
+    font-variant-caps: unicase;
+}
+.recipeIngredientName {
+    font-family: 'IBM Plex Sans';
+    font-weight: 700;
+    font-size: xx-large;
+    line-height: 52px;
+    /* identical to box height */
+    color: #000000;
+    position: inherit;
+    padding: 20px;
+}
+
+.MacrosLine {
+    line-height: 2px;
+}
+.MacroIngredientsPart {
+    margin-top: -10px;
+    box-shadow: 5px 7px 4px rgba(0, 0, 0, 0.25);
+    margin-left: 20px;
+    /*background: #D9D9D9;*/
+    padding: 10px;
+    max-width: fit-content;
+    height:fit-content;
+    /*border-radius: 25px;*/
+    min-width: 20%;
+    background: #FFFFFF;
+    border: 1px solid #979797;
+    border-radius: 20px
+}
+.NutritionFact {
+    font-size: xx-large;
+    font-weight: 700;
+
+}
+.imageLandingBIG {
+    margin-top: -10px;
+    min-width: 33%;
+    max-width: 600px;
+    /*border-radius: 20px;*/
+    box-shadow: 7px 11px 16px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+.empty-message {
+    color: red;
+    text-align: center;
+    padding: 10px 0px;
+}
+
+.tt-menu {
+    display: block;
+    width: 152%;
+    background-color: #fff;
+    border: unset !important;
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+.tt-suggestion {
+    padding: 3px 20px;
+    font-size: 18px;
+    line-height: 24px;
+    cursor: pointer;
+}
+
+.man-section {
+    position: relative;
+    width: 94%;
+    border-bottom: 1px solid #d2d2d2;
+    
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.image-section {
+    width: 10%;
+    float: left;
+    display: table;
+}
+
+    .image-section img {
+        width: 70px;
+        height: 70px;
+        display: table-cell;
+        vertical-align: middle;
+        margin: 5px 5px 5px 5px;
+    }
+
+.description-section {
+    float: left;
+    width: 80%;
+}
+
+    .description-section h1 {
+        margin: 0px;
+        font-weight: bold;
+        padding: 0px 7px;
+        font-size: 16px;
+        color: #000;
+        margin-top: 4px;
+        text-transform: uppercase;
+    }
+
+    .description-section p {
+        margin: 0px;
+        padding: 0px 1px 0px 8px;
+        font-size: 14px;
+        color: #7d7f80;
+        line-height: 15px;
+    }
+
+    .description-section span {
+        padding: 7px;
+        font-size: 13px;
+        color: #a09999;
+    }
+
+.more-section {
+    position: absolute;
+    bottom: 7px;
+    right: 16px;
+}
+
+    .more-section a {
+        text-decoration: none;
+    }
+
+    .more-section button {
+        border: unset;
+        color: #fff;
+        border-radius: 5px;
+        padding: 5px;
+        background-color: #5D4C46 !important;
+    }

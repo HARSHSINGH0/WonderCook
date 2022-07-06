@@ -1,0 +1,95 @@
+﻿@*@model IEnumerable<WonderCook.Models.RecipeAddViewModel>*@
+@*@model dynamic*@
+@model WonderCook.Models.RecipeAddViewModelList
+@{
+    ViewBag.Title = "Recipe";
+
+}
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <link href="~/Content/Site.css" rel="stylesheet" />
+
+    @* copied stuff *@
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/0.11.1/typeahead.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/Content/landingstyle.css">
+    @* copied stuff *@
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Inter:wght@300&family=Roboto:wght@100&display=swap" rel="stylesheet">
+</head>
+<body class="backgroundlanding">
+    <div class="container-fluid grid-container" style=" margin-top: -03%; max-height: 200px; ">
+        <div class="col ">
+            <img src="~/Content/Images/2.png" style=" margin-top: -10%; min-width: 100px; max-width: 85%; border-radius: 50%;  " />
+
+        </div>
+        <div class="col searchbarWITHfont">
+            <input class="searchbar searchbarfont" type="text" placeholder="Search for Recipes..."
+                   style="
+    margin-left: -7%;
+" />
+            <i class="fa fa-search fa-2xl iconsearch" style="color: rgb(206,39,39)" aria-hidden="true"></i>
+
+        </div>
+    </div>
+    
+    <div class="Main">
+        @{int recipeIDTEST; }
+        @foreach (var item in Model.RecipesModel)
+        {
+
+            recipeIDTEST = int.Parse(Url.RequestContext.RouteData.Values["id"].ToString());//Url.RequestContext.RouteData.Values["id"].ToString()
+
+            if (item.recipe_id == recipeIDTEST)
+            { //item.RecipesModel.recipe_id
+                <div class="HeadingRecipe">@Html.DisplayFor(modelItem => item.recipe_name, new { @class = "HeadingRecipe" })</div>
+                <br />
+                <div class="imageLandingBodyWhite">
+
+                    <div><img src="@Html.DisplayFor(modelItem => item.image)" class="imageLandingBIG" /></div>
+
+                    @*<span class="overflow1">@Html.DisplayFor(modelItem => item.image)</span>*@
+
+                    <div class="IngredientPart">
+                        <span class="recipeIngredientName">Ingredients:</span>
+                        @foreach (var Ingr in Model.IngredientsModel)
+                        {
+                            if (Ingr.Recipes_recipe_id == item.recipe_id)
+                            {
+                                <div class="IngredientDisplay">@Html.DisplayFor(modelItem => Ingr.ingredient, new { @class = "" }) @Html.DisplayFor(modelItem => Ingr.quantity, new { @class = "" })</div>
+
+                            }
+                        }
+
+                    </div>
+                    <div class="MacroIngredientsPart">
+                        <span class="NutritionFact">Nutrition Facts</span>
+                        <hr style="height: 8px; background-color: #4e4d4d; border: none; " />
+                        @foreach (var Macro in Model.Macro_IngredientsModel)
+                        {
+                            if (Macro.Recipes_recipe_id == item.recipe_id)
+                            {
+                                <div class="MacrosLine">@Html.DisplayFor(modelItem => Macro.nutrient) @Html.DisplayFor(modelItem => Macro.amount)</div>
+                                <hr style="height: 1px; background-color: #4e4d4d; border: none; line-height:10" />
+                            }
+                        }
+                    </div>
+
+
+
+                </div>
+                <div class="HowtoCookPart">
+                    <span class="recipeIngredientName">How to Cook:</span>
+                    <span class="">@Html.DisplayFor(modelItem => item.how_to_make) </span>
+                </div>
+
+
+            }
+        }
+    </div>
+</body>
