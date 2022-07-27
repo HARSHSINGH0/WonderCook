@@ -1,50 +1,25 @@
-﻿@using WonderCook.Models;
-@model RecipeAddViewModel
-@{
-    ViewBag.Title = "www.compilemode.com";
-}
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#Name").autocomplete({
+﻿<script>
+    function testasdasd() {//this may cause error
+        $("#txtrecipename").autocomplete({
             source: function (request, response) {
                 $.ajax({
-                    url: "/Home/Index",
-                    type: "POST",
+                    url: "/Home/Getrecipes/",
+                    data: "{'recipe_name':'" + request.term + "'}",
                     dataType: "json",
-                    data: { Prefix: request.term },
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
                     success: function (data) {
+                        console.log(data);
                         response($.map(data, function (item) {
-                            return { label: item.Name, value: item.Name };
+                            return item;
                         }))
-
-                    }
-                })
+                    },
+                });
             },
-            messages: {
-                noResults: "", results: ""
-            }
+            minLength: 1
         });
     })
 </script>
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
 
-        <hr />
-
-        <div class="form-group">
-
-            <div class="col-md-12">
-                
-                @Html.EditorFor(model => model.RecipesModel.recipe_name, new { htmlAttributes = new { @class = "form-control" } })
-
-            </div>
-        </div>
-
-    </div>
-}
+<input type="text" id="txtrecipename" name="recipe_name" class="searchbar searchbarfont" placeholder="   Find..." />

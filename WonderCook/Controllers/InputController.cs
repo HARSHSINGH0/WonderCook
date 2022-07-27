@@ -107,6 +107,7 @@ namespace WonderCook.Controllers
                     }
                     catch (Exception ex)
                     {
+                        var execp = ex;
                         path = "-1";
                     }
                 }
