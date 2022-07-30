@@ -44,10 +44,10 @@ namespace WonderCook.Controllers
         //}
 
         [HttpPost]
-        public JsonResult Getemp(string Recipe_name)
+        public JsonResult Getemp(string recipe_name)
         {
             RecipeDatabaseEntities sdb = new RecipeDatabaseEntities();
-            var recipe = (from x in sdb.Recipes where x.recipe_name.StartsWith(Recipe_name) select new { label = x.recipe_name }).ToList();
+            var recipe = (from x in sdb.Recipes where x.recipe_name.StartsWith(recipe_name) select new { label = x.recipe_name }).ToList();
             System.Diagnostics.Debug.WriteLine(recipe);
             //return Json(recipe);
             return Json(recipe);
