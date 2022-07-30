@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Drawing;
 using System.IO;
@@ -62,15 +63,15 @@ namespace WonderCook.Controllers
         }
 
         
-        [System.Web.Http.HttpGet]
+        
+        
+        //[System.Web.Http.HttpGet]
         public ActionResult Index(List<string> AllIngredients_posted)
         {
             if (AllIngredients_posted == null)
             {
                 return View(dbObj.Recipes.ToList());
             }
-
-            
             //Recipes model = new Recipes();
             RecipeAddViewModelList modelistALL = new RecipeAddViewModelList();
             //IEnumerable<Ingredients> menusIngr = dbObj.Ingredients;
@@ -114,6 +115,8 @@ namespace WonderCook.Controllers
             //return RedirectToAction("Index",menus);
             //return Redirect("Index");
             return View("Index",menus);
+            //return PartialView("Menu", menus);
+           
         }
 
         public ActionResult SearchView()
