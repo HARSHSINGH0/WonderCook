@@ -16,43 +16,17 @@
     <title>SearchBar</title>
 </head>
 <body class="bodyClass" style="background:whitesmoke">
-    <div>
-        <script>
-            $(function () {
-                $("#txtrecipename").autocomplete({
-                    source: function (request, response) {
-                        $.ajax({
-                            url: "/Home/Getemp/",
-                            data: "{'Recipe_name':'" + request.term + "'}",
-                            dataType: "json",
-                            type: "POST",
-                            contentType: "application/json; charset=utf-8",
-                            success: function (data) {
-                                response($.map(data, function (item) {
-                                    return item;
-                                }))
-                            },
-                        });
-                    },
-                    minLength: 1
-                });
-            })
-        </script>
-        <input type="text" id="txtrecipename" name="Recipe_name" class="searchbar searchbarfont" placeholder="Find..." />
-    </div>
+    
 
     <div class="container-fluid grid-container" style=" margin-top: -03%; max-height: 200px; ">
         <div class="col ">
             <a href="/Home/Index"><img src="~/Content/Images/2.png" style=" margin-top: -10%; min-width: 100px; max-width: 70%; border-radius: 50%; margin-left: 25%; " /></a>
 
         </div>
-        <div class="col searchbarWITHfont1">
-            <input class="searchbar1 searchbarfont1" type="text" placeholder="Search for Recipes..." id="txtrecipename"
-                   style="
-    margin-left: -7%;
-" />
+        
+        
             <i class="fa fa-search fa-2xl iconsearch" style="color: rgb(206,39,39)" aria-hidden="true"></i>
-        </div>
+        
     </div>
     <br />
     <br />
@@ -64,10 +38,52 @@
             }
 
         </div>
-
+        <div>
+            <script>
+                $(function () {
+                    $("#txtrecipename").autocomplete({
+                        source: function (request, response) {
+                            $.ajax({
+                                url: "/Home/Getemp/",
+                                data: "{'Recipe_name':'" + request.term + "'}",
+                                dataType: "json",
+                                type: "POST",
+                                contentType: "application/json; charset=utf-8",
+                                success: function (data) {
+                                    response($.map(data, function (item) {
+                                        return item;
+                                    }))
+                                },
+                            });
+                        },
+                        minLength: 1
+                    });
+                })
+                $(function () {
+                    $("#txtrecipename1").autocomplete({
+                        source: function (request, response) {
+                            $.ajax({
+                                url: "/Home/Getemp/",
+                                data: "{'Recipe_name':'" + request.term + "'}",
+                                dataType: "json",
+                                type: "POST",
+                                contentType: "application/json; charset=utf-8",
+                                success: function (data) {
+                                    response($.map(data, function (item) {
+                                        return item;
+                                    }))
+                                },
+                            });
+                        },
+                        minLength: 1
+                    });
+                })
+            </script>
+            <input type="text" id="txtrecipename" name="Recipe_name" class="searchbar searchbarfont1" placeholder="Find..." />
+            <input type="text" id="txtrecipename1" name="Recipe_name" class="searchbar searchbarfont1" placeholder="Find..." onchange="txtrecipename1"/>
+        </div>
         <div class="menuview">
             @{
-                Html.RenderPartial("SideView");
                 Html.RenderPartial("Menu", Model);
             }
         </div>

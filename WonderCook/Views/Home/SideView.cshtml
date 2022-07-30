@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "sideview";
 }
 <head>
@@ -14,8 +13,12 @@
         @Html.AntiForgeryToken()//Using AntiForgeryToken helps mitigate against cross-site request forgery attacks.*@
 @*@RenderSection("JavaScript", required: false)*@
 <div class="container-fluid seconframe" style="margin-top:10px">
-
-    <button type="button" id="" value="" class="btn btn-light margin10" onclick="GotoRecipe(event, 'button', '')" data-count="1" style="padding: 20px; min-width: 95%; min-height: 100%; background-color: rgb(255, 255, 255);">Click here to Search</button>
+    <p style="
+    color: #5a5858;
+    text-align: center;
+    font-weight: bold;
+">Select Below Ingredient and Click on Search button</p>
+    <button type="button" id="" value="" class="btn btn-light margin10" onclick="GotoRecipe(event, 'button', '')" data-count="1" style="padding: 20px; min-width: 95%; min-height: 100%; background-color: rgb(255, 255, 255);">Search</button>
     <i class="fa fa-search fa-xl iconsearch" style="color: rgb(206,39,39)" aria-hidden="true"></i>
     <br>
     <div class="card shadow" style="width: 18rem;">
