@@ -13,211 +13,165 @@
     {
         @Html.AntiForgeryToken()//Using AntiForgeryToken helps mitigate against cross-site request forgery attacks.*@
 @*@RenderSection("JavaScript", required: false)*@
-<div class="container-fluid seconframe">
+<div class="container-fluid seconframe" style="margin-top:10px">
+
+    <button type="button" id="" value="" class="btn btn-light margin10" onclick="GotoRecipe(event, 'button', '')" data-count="1" style="padding: 20px; min-width: 95%; min-height: 100%; background-color: rgb(255, 255, 255);">Click here to Search</button>
+    <i class="fa fa-search fa-xl iconsearch" style="color: rgb(206,39,39)" aria-hidden="true"></i>
     <br>
     <div class="card shadow" style="width: 18rem;">
-
         <div class="card-body">
-            <img src="veg.png" class="veg">
-            &nbsp; <h7 class="card-title">Vegetables & Greens </h7>
+            <img src="~/Content/Images/image assests/pantry.jpg" class="veg">
+            &nbsp; <h7 class="card-title">
+                Pantry Essentials
+            </h7>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;
             <hr style="width: 100%;">
 
-            <button type="button" id="" value="" class="btn" onclick="GotoRecipe(event, 'button', '')" data-count="1">Go</button>
-            &nbsp;&nbsp;
-            <button type="button" id="button" value="tomato" class="btn" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">tomato</button>
-            &nbsp;&nbsp;
-            @*<button type="button" id="button" value="onion" class="btn" onclick="setColor(event, 'button', ''); inputIngredient(this);" ; data-count="1">onion</button>*@
-            <button type="button" id="button" value="onion" class="btn" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">onion</button>
+            <span>
+                <button type="button" id="button" value="butter" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">
+                    butter
+                </button>&nbsp;<button type="button" id="button" value="egg" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">
+                    egg
+                </button>&nbsp;<button type="button" id="button" value="garlic" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">
+                    garlic
+                </button>&nbsp;<button type="button" id="button" value="milk" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">
+                    milk
+                </button>&nbsp;<button type="button" id="button" value="onion" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">
+                    onion
+                </button>&nbsp;<button type="button" id="button" value="sugar" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">
+                    sugar
+                </button>&nbsp;<button type="button" id="button" value="flour" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">
+                    flour
+                </button>&nbsp;<button type="button" id="button" value="olive oil" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">
+                    olive oil
+                </button>&nbsp;<button type="button" id="button" value="garlic powder" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">
+                    garlic powder
+                </button>&nbsp;<button type="button" id="button" value="rice" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">
+                    rice
+                </button>&nbsp;<button type="button" id="button" value="cinnamon" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">
+                    cinnamon
+                </button>&nbsp;<button type="button" id="button" value="ketchup" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">
+                    ketchup
+                </button>&nbsp;<button type="button" id="button" value="soy sauce" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">
+                    soy sauce
+                </button>&nbsp;<button type="button" id="button" value="mayonnaise" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">
+                    mayonnaise
+                </button>&nbsp;<button type="button" id="button" value="vegetable oil" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">
+                    vegetable oil
+                </button>&nbsp;<button type="button" id="button" value="bread" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">
+                    bread
+                </button>&nbsp;<button type="button" id="button" value="baking powder" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">
+                    baking powder
+                </button>&nbsp;<button type="button" id="button" value="brown sugar" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">
+                    brown sugar
+                </button>&nbsp;<button type="button" id="button" value="oregano" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">
+                    oregano
+                </button>&nbsp;<button type="button" id="button" value="potato" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">
+                    potato
+                </button>&nbsp;<button type="button" id="button" value="honey" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">
+                    honey
+                </button>&nbsp;<button type="button" id="button" value="paprika" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">
+                    paprika
+                </button>&nbsp;<button type="button" id="button" value="baking soda" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">
+                    baking soda
+                </button>&nbsp;<button type="button" id="button" value="vanilla" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">
+                    vanilla
+                </button>&nbsp;<button type="button" id="button" value="spaghetti" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">
+                    spaghetti
+                </button>&nbsp;<button type="button" id="button" value="peanut butter" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">
+                    peanut butter
+                </button>&nbsp;<button type="button" id="button" value="chili powder" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">
+                    chili powder
+                </button>&nbsp;<button type="button" id="button" value="cumin" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">
+                    cumin
+                </button>&nbsp;<button type="button" id="button" value="mustard" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">
+                    mustard
+                </button>&nbsp;<button type="button" id="button" value="chicken breast" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">
+                    chicken breast
+                </button>&nbsp;<button type="button" id="button" value="cheddar" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">
+                    cheddar
+                </button>&nbsp;<button type="button" id="button" value="onion powder" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">
+                    onion powder
+                </button>&nbsp;<button type="button" id="button" value="carrot" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">
+                    carrot
+                </button>&nbsp;<button type="button" id="button" value="tomato" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">
+                    tomato
+                </button>&nbsp;<button type="button" id="button" value="basil" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">
+                    basil
+                </button>&nbsp;<button type="button" id="button" value="parsley" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">
+                    parsley
+                </button>&nbsp;<button type="button" id="button" value="parmesan" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">
+                    parmesan
+                </button>&nbsp;<button type="button" id="button" value="italian seasoning" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">
+                    italian seasoning
+                </button>&nbsp;<button type="button" id="button" value="thyme" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">
+                    thyme
+                </button>&nbsp;<button type="button" id="button" value="bell pepper" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">
+                    bell pepper
+                </button>
+            </span>
+        </div>
+    </div>
+    <br />
+    <div class="card shadow" style="width: 18rem;">
+        <div class="card-body">
+            <img src="~/Content/Images/image assests/vegetables.png" class="veg">
+            &nbsp; <h7 class="card-title">Vegetables & Greens </h7>
+            
+            <hr style="width: 100%;">
 
-            <br>
-            <br>
-            <button type="button" id="button" value="water" class="btn" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">water</button>
-            &nbsp;&nbsp;
-            <button type="button" id="button" value="spinach" class="btn" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">spinach</button>
-            &nbsp;&nbsp;
-            <button type="button" id="button" value="leek" class="btn" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">leek</button>
-            <br>
-            <br>
-            <button type="button" id="button" value="celery" class="btn" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">celery1</button>
-            &nbsp;&nbsp;
-            <button type="button" id="button" value="cabbage" class="btn" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">cabbage</button>
-            &nbsp;&nbsp;
-            <button type="button" id="button" value="kale" class="btn" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">kale</button>
-            <br>
-            <br>
-            <button type="button" id="button" value="celery" class="btn" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">celery</button>
-            &nbsp;&nbsp;
-            <a class="btn" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                +20 More
-            </a>
-            <div class="collapse" id="collapseExample">
-                <div class="card card-body">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">leek</button>
-                            &nbsp;
-                            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
-                            &nbsp;&nbsp;
-                            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
-                            &nbsp;&nbsp;
-                        </div>
-                        <div class="col-md-2">
-                            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">leek</button>
-                            &nbsp;
-                            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
-                            &nbsp;&nbsp;
-                            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
-                            &nbsp;&nbsp;
-                        </div>
-                        <div class="col-md-2">
-                            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">leek</button>
-                            &nbsp;
-                            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
-                            &nbsp;&nbsp;
-                            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
-                            &nbsp;&nbsp;
-                        </div>
-                        <div class="col-md-2">
-                            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">leek</button>
-                            &nbsp;
-                            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
-                            &nbsp;&nbsp;
-                            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
-                            &nbsp;&nbsp;
-                        </div>
-                        <div class="col-md-2">
-                            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">leek</button>
-                            &nbsp;
-                            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
-                            &nbsp;&nbsp;
-                            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
-                            &nbsp;&nbsp;
-                        </div>
-                        <div class="col-md-2">
-                            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">leek</button>
-                            &nbsp;
-                            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
-                            &nbsp;&nbsp;
-                            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
-                            &nbsp;&nbsp;
-                        </div>
-                        <div class="col-md-2">
-                            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">leek</button>
-                            &nbsp;
-                            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
+            @*<button type="button" id="" value="" class="btn btn-light margin10" onclick="GotoRecipe(event, 'button', '')" data-count="1">Go</button>*@
 
-                        </div>
+            <button type="button" id="button" value="tomato" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">tomato</button>
 
+            @*<button type="button" id="button" value="onion" class="btn btn-light margin10" onclick="setColor(event, 'button', ''); inputIngredient(this);" ; data-count="1">onion</button>*@
+            <button type="button" id="button" value="onion" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">onion</button>
 
-                    </div>
+            <button type="button" id="button" value="water" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">water</button>
 
-                    <br>
-                </div>
-            </div>
+            <button type="button" id="button" value="spinach" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">spinach</button>
+
+            <button type="button" id="button" value="leek" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">leek</button>
+
+            <button type="button" id="button" value="red onion" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">red onion</button>
+
+            <button type="button" id="button" value="cabbage" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">cabbage</button>
+
+            <button type="button" id="button" value="kale" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">kale</button>
+
+            <button type="button" id="button" value="celery" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">celery</button>
+            <button type="button" id="button" value="scallion" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">scallion</button>
+            <button type="button" id="button" value="chili pepper" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">chili pepper</button>
+            <button type="button" id="button" value="broccoli" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">broccoli</button>
+
         </div>
     </div>
     <br>
     <div class="card shadow" style="width: 18rem;">
         <div class="card-body">
-            <img src="herbs.png" class="veg">
+            <img src="~/Content/Images/image assests/fruits.jpg" class="veg">
             &nbsp; <h7 class="card-title">Fruits</h7>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;
             <hr style="width: 105%;">
 
-            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">Garlic</button>
-            &nbsp;&nbsp;
-            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">tomato</button>
-            &nbsp;&nbsp;
-            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">onion</button>
+            <button type="button" id="button" value="button" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">Garlic</button>
+            <button type="button" id="button" value="lemon" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">lemon</button>
+            <button type="button" id="button" value="lime" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">lime</button>
+            <button type="button" id="button" value="apple" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">apple</button>
+            <button type="button" id="button" value="orange" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">orange</button>
+            <button type="button" id="button" value="banana" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">banana</button>
+            <button type="button" id="button" value="raisins" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">raisins</button>
+            <button type="button" id="button" value="pineapple" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">pineapple</button>
+            <button type="button" id="button" value="mango" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">mango</button>
+            <button type="button" id="button" value="peach" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">peach</button>
+            <button type="button" id="button" value="coconut" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">coconut</button>
+            <button type="button" id="button" value="crasins" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">crasins</button>
+            <button type="button" id="button" value="pear" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">pear</button>
+            <button type="button" id="button" value="date" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">date</button>
+            <button type="button" id="button" value="grape" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">date</button>
 
-            <br>
-            <br>
-            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">carrot</button>
-            &nbsp;&nbsp;
-            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">spinach</button>
-            &nbsp;&nbsp;
-            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">leek</button>
-            <br>
-            <br>
-            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
-            &nbsp;&nbsp;
-            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">cabbage</button>
-            &nbsp;&nbsp;
-            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">kale</button>
-            <br>
-            <br>
-            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
-            &nbsp;&nbsp;
-            <a class="btn" data-bs-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
-                +20 More
-            </a>
-            <div class="collapse" id="collapseExample1">
-                <div class="card card-body">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">leek</button>
-                            &nbsp;
-                            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
-                            &nbsp;&nbsp;
-                            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
-                            &nbsp;&nbsp;
-                        </div>
-                        <div class="col-md-2">
-                            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">leek</button>
-                            &nbsp;
-                            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
-                            &nbsp;&nbsp;
-                            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
-                            &nbsp;&nbsp;
-                        </div>
-                        <div class="col-md-2">
-                            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">leek</button>
-                            &nbsp;
-                            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
-                            &nbsp;&nbsp;
-                            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
-                            &nbsp;&nbsp;
-                        </div>
-                        <div class="col-md-2">
-                            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">leek</button>
-                            &nbsp;
-                            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
-                            &nbsp;&nbsp;
-                            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
-                            &nbsp;&nbsp;
-                        </div>
-                        <div class="col-md-2">
-                            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">leek</button>
-                            &nbsp;
-                            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
-                            &nbsp;&nbsp;
-                            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
-                            &nbsp;&nbsp;
-                        </div>
-                        <div class="col-md-2">
-                            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">leek</button>
-                            &nbsp;
-                            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
-                            &nbsp;&nbsp;
-                            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
-                            &nbsp;&nbsp;
-                        </div>
-                        <div class="col-md-2">
-                            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">leek</button>
-                            &nbsp;
-                            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
-
-                        </div>
-
-
-                    </div>
-
-                    <br>
-                </div>
-            </div>
 
         </div>
     </div>
@@ -225,74 +179,67 @@
     <div class="card shadow" style="width: 18rem;">
 
         <div class="card-body">
-            <img src="egs.jpg" class="veg">
+            <img src="~/Content/Images/image assests/dairy.png" class="veg">
             &nbsp; <h7 class="card-title">Dairy & Eggs </h7>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;0/30 Ingredients
+            &nbsp;&nbsp;&nbsp;
             <hr style="width: 105%;">
 
-            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" data-count="1">Garlic</button>
-            &nbsp;&nbsp;
-            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">water</button>
-            &nbsp;&nbsp;
-            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">onion</button>
+            <button type="button" id="button" value="butter" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" data-count="1">butter</button>
+            <button type="button" id="button" value="egg" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" data-count="1">egg</button>
+            <button type="button" id="button" value="milk" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" data-count="1">milk</button>
+            <button type="button" id="button" value="heavy cream" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" data-count="1">heavy cream</button>
+            <button type="button" id="button" value="sour cream" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" data-count="1">sour cream</button>
+            <button type="button" id="button" value="yogurt" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" data-count="1">yogurt</button>
+            <button type="button" id="button" value="buttermilk" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" data-count="1">buttermilk</button>
+            <button type="button" id="button" value="cream" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" data-count="1">cream</button>
+            <button type="button" id="button" value="greek yogurt" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" data-count="1">greek yogurt</button>
 
-            <br>
-            <br>
-            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">carrot</button>
-            &nbsp;&nbsp;
-            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">spinach</button>
-            &nbsp;&nbsp;
-            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">leek</button>
-            <br>
-            <br>
-            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
-            &nbsp;&nbsp;
-            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">cabbage</button>
-            &nbsp;&nbsp;
-            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">kale</button>
-            <br>
-            <br>
-            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
-            &nbsp;&nbsp;
-            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">+20 More</button>
         </div>
     </div>
     <br>
     <div class="card shadow" style="width: 18rem;">
 
         <div class="card-body">
-            <img src="veg.png" class="veg">
+            <img src="~/Content/Images/image assests/sugar.jpg" class="veg">
             &nbsp;<h7 class="card-title">Sugar & Sweeteners </h7>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;0/30 Ingredients
+            &nbsp;&nbsp;&nbsp;
             <hr style="width: 105%;">
 
-            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">Garlic</button>
-            &nbsp;&nbsp;
-            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">tomato</button>
-            &nbsp;&nbsp;
-            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">onion</button>
+            <button type="button" id="button" value="sugar" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">sugar</button>
+            <button type="button" id="button" value="brown sugar" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">brown sugar</button>
+            <button type="button" id="button" value="honey" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">honey</button>
+            <button type="button" id="button" value="maple syrup" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">maple syrup</button>
+            <button type="button" id="button" value="corn syrup" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">corn syrup</button>
+            <button type="button" id="button" value="cocunut sugar" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">cocunut sugar</button>
+            <button type="button" id="button" value="molasses" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">molasses</button>
+            <button type="button" id="button" value="stevia" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">stevia</button>
 
-            <br>
-            <br>
-            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">carrot</button>
-            &nbsp;&nbsp;
-            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">spinach</button>
-            &nbsp;&nbsp;
-            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">leek</button>
-            <br>
-            <br>
-            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
-            &nbsp;&nbsp;
-            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">cabbage</button>
-            &nbsp;&nbsp;
-            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">kale</button>
-            <br>
-            <br>
-            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">celery</button>
-            &nbsp;&nbsp;
-            <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">+20 More</button>
+        </div>
+    </div><br>
+    <div class="card shadow" style="width: 18rem;">
+
+        <div class="card-body">
+            <img src="~/Content/Images/image assests/grains.png" class="veg">
+            &nbsp;<h7 class="card-title">
+                Grains & Cereals
+            </h7>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;
+            <hr style="width: 105%;">
+
+            <button value="oats" type="button" id="button" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">oats</button>
+            <button value="rice" type="button" id="button" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">rice</button>
+            <button value="quinoa" type="button" id="button" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">quinoa</button>
+            <button value="basmati rice" type="button" id="button" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">basmati rice</button>
+            <button value="brown rice" type="button" id="button" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">brown rice</button>
+            <button value="risotto rice" type="button" id="button" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">rissoto rice</button>
+            <button value="breakfast cereal" type="button" id="button" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">breakfast cereal</button>
+            <button value="couscous" type="button" id="button" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">couscous</button>
+            <button value="rice cereal" type="button" id="button" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">rice cereal</button>
+            <button value="wild rice" type="button" id="button" class="btn btn-light margin10" onclick="IngredientAndColor(event, 'button', '',this);" ; data-count="1">wild rice</button>
+
         </div>
     </div>
 </div>

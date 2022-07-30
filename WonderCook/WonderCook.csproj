@@ -374,8 +374,14 @@
     <Content Include="Content\Images\4.png" />
     <Content Include="Content\Images\Good Food Catering Services Logo.png" />
     <Content Include="Content\Images\image assests\bakery.png" />
+    <Content Include="Content\Images\image assests\dairy.jpg" />
     <Content Include="Content\Images\image assests\dairy.png" />
+    <Content Include="Content\Images\image assests\fruits.jpg" />
+    <Content Include="Content\Images\image assests\grains.png" />
     <Content Include="Content\Images\image assests\herbsand spices.png" />
+    <Content Include="Content\Images\image assests\pantry.jpg" />
+    <Content Include="Content\Images\image assests\sugar.jpg" />
+    <Content Include="Content\Images\image assests\vegetables.jpg" />
     <Content Include="Content\Images\image assests\vegetables.png" />
     <Content Include="Content\javascript\sideview.js" />
     <Content Include="Content\javascript\sideview1.js" />
@@ -445,6 +451,7 @@
     <Content Include="Views\Home\SearchView.cshtml" />
     <Content Include="Views\Home\SideViewTest.cshtml" />
     <Content Include="Views\Home\Index1.cshtml" />
+    <Content Include="Views\Home\SearchBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

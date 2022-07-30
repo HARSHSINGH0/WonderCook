@@ -42,7 +42,7 @@ async function GotoRecipe(e, btn, color) {
 
     teststring = JSON.parse(teststring);
     var target = e.target, count = +target.dataset.count;
-    target.style.backgroundColor = count === 1 ? "#ff8c00" : '#ffffff';
+    target.style.backgroundColor = count === 1 ? "#F59552" : '#ffffff';
     target.dataset.count = count === 1 ? 0 : 1;
     const res = await fetch("/Home/Index", {
         method: "POST",

@@ -19,7 +19,7 @@ namespace WonderCook.Controllers
         //public ActionResult Index(List<Recipes> menus)
         //{
         //    //List<RecipeAddViewModel> viewModelAll = new List<RecipeAddViewModel>();
-            
+
         //    if (menus == null)
         //    {
         //        return View(dbObj.Recipes.ToList());
@@ -33,19 +33,31 @@ namespace WonderCook.Controllers
         //        return View(menus);//(viewModelAll.ToList()
         //    }
         //}
-        
-        
-        
+
+
+
         //public ActionResult Menu(IEnumerable<Recipes> menus)
         //{
 
-            
+
         //    return View(dbObj.Recipes.ToList());
         //}
+
+        [HttpPost]
+        public JsonResult Getemp(string Recipe_name)
+        {
+            RecipeDatabaseEntities sdb = new RecipeDatabaseEntities();
+            var recipe = (from x in sdb.Recipes where x.recipe_name.StartsWith(Recipe_name) select new { label = x.recipe_name }).ToList();
+            System.Diagnostics.Debug.WriteLine(recipe);
+            //return Json(recipe);
+            return Json(recipe);
+        }
+        public ActionResult SearchBar()
+        {
+            return View(dbObj.Recipes.ToList());
+        }
         public ActionResult Menu()
         {
-
-            
             return View(dbObj.Recipes.ToList());
         }
 

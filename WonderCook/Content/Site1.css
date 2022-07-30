@@ -5,7 +5,9 @@
     overflow: auto;
     background: #f3dbca;
 }
-
+.margin10 {
+    margin:5px;
+}
 .marginSpaceTop a {
     color: #FFFFFF;
     text-decoration: none;
@@ -195,7 +197,7 @@
 }
 
 .back {
-    height: 150px;
+    height: 80px;
     /*margin-top: -9.6px;*/
     /* background: #ornage;
 	background: -webkit-linear-gradient(bottom, #FFFFFF, #FF6401, #e76f51,#f4a261,#fcbf49,#ffddd2,#fb5607);
