@@ -44,13 +44,31 @@ namespace WonderCook.Controllers
         //}
 
         [HttpPost]
-        public JsonResult Getemp(string recipe_name)
+        public JsonResult Getrec(string recipe_name)
         {
             RecipeDatabaseEntities sdb = new RecipeDatabaseEntities();
-            var recipe = (from x in sdb.Recipes where x.recipe_name.StartsWith(recipe_name) select new { label = x.recipe_name }).ToList();
-            System.Diagnostics.Debug.WriteLine(recipe);
+            var recipe = (from x in sdb.Recipes where x.recipe_name.StartsWith(recipe_name) select new { label = x.recipe_name });
+            var recipeid = (from x in sdb.Recipes where x.recipe_name==recipe_name select new { label = x.recipe_id});
+            System.Diagnostics.Debug.WriteLine(recipeid.GetType());
             //return Json(recipe);
+            //var a = new Dictionary<string, string>
+            //{
+            //    {recipeid, recipe}
+            //};
             return Json(recipe);
+        }
+        public int Getrecid(string recipe_name)
+        {
+            RecipeDatabaseEntities sdb = new RecipeDatabaseEntities();
+            var recipe = (from x in sdb.Recipes where x.recipe_name.StartsWith(recipe_name) select new { label = x.recipe_id });
+            //var recipeid = (from x in sdb.Recipes where x.recipe_name==recipe_name select new { label = x.recipe_id});
+           // System.Diagnostics.Debug.WriteLine(recipeid.GetType());
+            //return Json(recipe);
+            //var a = new Dictionary<string, string>
+            //{
+            //    {recipeid, recipe}
+            //};
+            return (int.Parse(recipe.ToString()));
         }
         public ActionResult SearchBar()
         {
@@ -101,7 +119,6 @@ namespace WonderCook.Controllers
             //System.Diagnostics.Debug.WriteLine("menus length:" +menus.Count());
             foreach (var item in menus)
             {
-                
                 System.Diagnostics.Debug.WriteLine("menus:" + item.recipe_name);
             }
             //menus=menus.ToList();
