@@ -1,0 +1,91 @@
+﻿@model IEnumerable<WonderCook.Models.Recipes>
+@{
+    Layout = null;
+}
+<h2>Search Bar</h2>
+<link href="~/Content/Site.css" rel="stylesheet" />
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.8.0.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.22/jquery-ui.js"></script>
+<link rel="Stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/themes/redmond/jquery-ui.css" />
+
+<!DOCTYPE html>
+
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SearchBar</title>
+</head>
+<body class="bodyClass" style="background:whitesmoke">
+    
+
+    <div class="container-fluid grid-container" style=" margin-top: -03%; max-height: 200px; ">
+        <div class="col ">
+            <a href="/Home/Index"><img src="~/Content/Images/2.png" style=" margin-top: -10%; min-width: 100px; max-width: 70%; border-radius: 50%; margin-left: 25%; " /></a>
+
+        </div>
+        
+        
+            <i class="fa fa-search fa-2xl iconsearch" style="color: rgb(206,39,39)" aria-hidden="true"></i>
+        
+    </div>
+    <br />
+    <br />
+    <div class="parent">
+
+        <div class="sideview">
+            @{
+                Html.RenderPartial("SideView");
+            }
+
+        </div>
+        <div>
+            <script>
+                $(function () {
+                    $("#txtrecipename").autocomplete({
+                        source: function (request, response) {
+                            $.ajax({
+                                url: "/Home/Getemp/",
+                                data: "{'Recipe_name':'" + request.term + "'}",
+                                dataType: "json",
+                                type: "POST",
+                                contentType: "application/json; charset=utf-8",
+                                success: function (data) {
+                                    response($.map(data, function (item) {
+                                        return item;
+                                    }))
+                                },
+                            });
+                        },
+                        minLength: 1
+                    });
+                })
+                $(function () {
+                    $("#txtrecipename1").autocomplete({
+                        source: function (request, response) {
+                            $.ajax({
+                                url: "/Home/Getemp/",
+                                data: "{'Recipe_name':'" + request.term + "'}",
+                                dataType: "json",
+                                type: "POST",
+                                contentType: "application/json; charset=utf-8",
+                                success: function (data) {
+                                    response($.map(data, function (item) {
+                                        return item;
+                                    }))
+                                },
+                            });
+                        },
+                        minLength: 1
+                    });
+                })
+            </script>
+            <input type="text" id="txtrecipename" name="Recipe_name" class="searchbar searchbarfont1" placeholder="Find..." />
+            <input type="text" id="txtrecipename1" name="Recipe_name" class="searchbar searchbarfont1" placeholder="Find..." onchange="txtrecipename1"/>
+        </div>
+        <div class="menuview">
+            @{
+                Html.RenderPartial("Menu", Model);
+            }
+        </div>
+    </div>
+</body>

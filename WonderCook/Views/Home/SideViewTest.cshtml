@@ -1,0 +1,42 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SideViewTest</title>
+
+</head>
+<body>
+    <div>
+        <button type="button" id="button" value="Garlic" class="btn" onclick="GotoRecipe()" ; data-count="1">Go </button>
+    </div>
+    <script>
+        function setColor(e, btn) {
+            var target = e.target, count = +target.dataset.count;
+            target.style.backgroundColor = count === 1 ? "#ff8c00" : '#ffffff';
+            target.dataset.count = count === 1 ? 0 : 1;
+        }
+        
+    </script>
+    <script>
+        const AllIngredients = [];
+        function inputIngredient(objButton) {
+            AllIngredients.push(objButton.value);
+            alert(AllIngredients);
+
+        }
+        
+    </script>
+    <script>
+        function GotoRecipe() {
+            Html.RenderAction("Menu", "Home", new { AllIngredients_posted = AllIngredients });
+
+        }
+
+    </script>
+</body>
+</html>

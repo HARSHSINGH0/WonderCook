@@ -28,7 +28,7 @@
         <img src="4.png" alt=""  class="menulogo rounded-circle">
     </a> -->
 
-    <input type="search" class="searchbar searchbarfont" placeholder="   Find..." />
+    @*<input type="search" class="searchbar searchbarfont" placeholder="   Find..." />*@
     <!-- <i class="fa fa-search iconsearch1" style="color: rgb(206,39,39)" aria-hidden="true"></i> -->
     <br>
 </div>
@@ -78,9 +78,7 @@
     </div>
 
     <br>
-    <span class="lead result-text">
-        You can make 25 recipe
-    </span>
+    
     <br>
 
     <span class="h6">Do you have?</span>
@@ -88,7 +86,7 @@
     &nbsp;&nbsp;
     <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">tomato</button>
     &nbsp;&nbsp;
-    <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">onion</button>
+    <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">water</button>
     &nbsp;&nbsp;
     <button type="button" id="button" value="button" class="btn" onclick="setColor(event, 'button', '')" ; data-count="1">carrot</button>
     &nbsp;
@@ -104,28 +102,26 @@
 
     <button type="button" id="button" value="button" class="btn" onclick="">+20 More</button>
     <hr>
-    <table>
 
+    <table>
         <!--Card Content/ Results-->
         @foreach (var item in Model)
         {
 
-        <tr>
-            <td class="marginSpaceTop">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="~/Home/Recipe/@item.recipe_id">
-                    <img src="@Html.DisplayFor(modelItem => item.image)" width="200px" height="100px" class="imageMenuRecipe" /></a>
+            <tr>
+                <td class="marginSpaceTop">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="~/Home/Recipe/@item.recipe_id">
+                        <img src="@Html.DisplayFor(modelItem => item.image)" width="160px" height="100px" class="imageMenuRecipe" />
+                    </a>
                     @*<span class="overflow1">@Html.DisplayFor(modelItem => item.image)</span>*@
-</td>
-            <td class="marginSpaceTop">
-    &nbsp;&nbsp;&nbsp;<a href="~/Home/Recipe/@item.recipe_id">
-    <span class="recipeNameFont">@Html.DisplayFor(modelItem => item.recipe_name)</span>
-</a>
-            </td>
-        </tr>
-            
-
+                </td>
+                <td class="marginSpaceTop">
+                    &nbsp;&nbsp;&nbsp;<a href="~/Home/Recipe/@item.recipe_id">
+                        <span class="recipeNameFont">@Html.DisplayFor(modelItem => item.recipe_name)</span>
+                    </a>
+                </td>
+            </tr>
         }
     </table>
-
 </div>

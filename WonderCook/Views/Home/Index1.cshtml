@@ -1,0 +1,41 @@
+﻿@model IEnumerable<WonderCook.Models.Recipes>
+@{
+    ViewBag.Title = "Index1";
+}
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <link href="~/Content/Site1.css" rel="stylesheet" />
+
+</head>
+<body class="bodyClass" style="background:whitesmoke">
+
+    <div class="container-fluid grid-container" style=" margin-top: -03%; max-height: 200px; ">
+        <div class="col ">
+            <a href="/Home/Index"><img src="~/Content/Images/2.png" style=" margin-top: -10%; min-width: 100px; max-width: 70%; border-radius: 50%; margin-left: 25%; " /></a>
+
+        </div>
+        <div class="col searchbarWITHfont1">
+            <input class="searchbar1 searchbarfont1" type="text" placeholder="Search for Recipes..."
+                   style="
+    margin-left: -7%;
+" />
+            <i class="fa fa-search fa-2xl iconsearch" style="color: rgb(206,39,39)" aria-hidden="true"></i>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="parent">
+        <div class="sideview">
+            @{
+                Html.RenderPartial("SideView");
+            }
+
+        </div>
+        <div class="menuview">
+            @{
+                Html.RenderPartial("Menu", Model);
+            }
+        </div>
+    </div>
+</body>
