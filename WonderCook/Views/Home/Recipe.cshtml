@@ -37,7 +37,7 @@
 				$("#txtrecipenameTest").autocomplete({
 					source: function (request, response) {
 						$.ajax({
-							url: "/Home/Getemp/",
+                            url: "/Home/Getrec/",
 							data: "{'recipe_name':'" + request.term + "'}",
 							dataType: "json",
 							type: "POST",
@@ -48,7 +48,16 @@
 								}))
 							},
 						});
-					},
+                    },
+                    select: function (event, ui) {
+                        // prevent autocomplete from updating the textbox
+                        event.preventDefault();
+                        $(this).val(ui.item.label);
+                        //$("#txtGuardianId").val(ui.item.id);
+                        //location.href = "Recipe/1" + ui.item.label
+
+                        location.href = ui.item.label
+                    },
 					minLength: 1
 				});
 			})
