@@ -6,45 +6,114 @@
 
 }
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
-    <link href="~/Content/Site.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
 
-    @* copied stuff *@
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/0.11.1/typeahead.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="~/Content/landingstyle.css">
-    @* copied stuff *@
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Inter:wght@300&family=Roboto:wght@100&display=swap" rel="stylesheet">
+	@* copied stuff *@
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/0.11.1/typeahead.bundle.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="~/Content/landingstyle.css">
+	<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.8.0.js"></script>
+	<script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.22/jquery-ui.js"></script>
+	<link rel="Stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.4/themes/sunny/jquery-ui.css" />
+	@* copied stuff *@
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Inter:wght@300&family=Roboto:wght@100&display=swap" rel="stylesheet">
 </head>
 <body class="backgroundlanding">
-    <div class="container-fluid grid-container" style=" margin-top: -03%; max-height: 200px; ">
-        <div class="col ">
-            <a href="~/Home/Index"><img src="~/Content/Images/2.png" style=" margin-top: -10%; min-width: 100px; max-width: 85%; border-radius: 50%;  " /></a>
+	<div class="container-fluid grid-container" style=" margin-top: -03%; max-height: 200px; ">
+		<div class="col ">
+			<a href="~/Home/Index"><img src="~/Content/Images/2.png" style=" margin-top: -10%; min-width: 100px; max-width: 85%; border-radius: 50%;  " /></a>
 
-        </div>
-        <div class="col searchbarWITHfont">
-            <input class="searchbar searchbarfont" type="text" placeholder="Search for Recipes..."
-                   style="
-    margin-left: -7%;
-" />
-            <i class="fa fa-search fa-2xl iconsearch" style="color: rgb(206,39,39)" aria-hidden="true"></i>
+		</div>
 
-        </div>
-    </div>
+		<script>
+			$(function () {
+				$("#txtrecipenameTest").autocomplete({
+					source: function (request, response) {
+						$.ajax({
+                            url: "/Home/Getrec/",
+							data: "{'recipe_name':'" + request.term + "'}",
+							dataType: "json",
+							type: "POST",
+							contentType: "application/json; charset=utf-8",
+							success: function (data) {
+								response($.map(data, function (item) {
+									return item;
+								}))
+							},
+						});
+                    },
+                    select: function (event, ui) {
+                        // prevent autocomplete from updating the textbox
+                        event.preventDefault();
+                        $(this).val(ui.item.label);
+                        //$("#txtGuardianId").val(ui.item.id);
+                        //location.href = "Recipe/1" + ui.item.label
+
+                        location.href = ui.item.label
+                    },
+					minLength: 1
+				});
+			})
+		</script>
+		<div class="col searchbarWITHfont">
+			@*<input class="searchbar searchbarfont" type="text" placeholder="Search for Recipes..."
+							   style="
+				margin-left: -7%;
+			" />
+						<i class="fa fa-search fa-2xl iconsearch" style="color: rgb(206,39,39)" aria-hidden="true"></i>
+						//*@
+			<input class="searchbar searchbarfont" type="text" placeholder="Search for Recipes..." name="recipe_name" id="txtrecipenameTest" style="margin-left: -7%;" />
+			<i class="fa fa-search fa-2xl iconsearch" style="color: rgb(206,39,39)" aria-hidden="true"></i>
+		</div>
+	</div>
     
     <div class="Main">
         @{int recipeIDTEST; }
         @foreach (var item in Model.RecipesModel)
         {
 
-            recipeIDTEST = int.Parse(Url.RequestContext.RouteData.Values["id"].ToString());//Url.RequestContext.RouteData.Values["id"].ToString()
+            //int b;
+            System.Diagnostics.Debug.WriteLine(Url.RequestContext.RouteData.Values["id"]);
+            //Boolean a= int.TryParse(Url.RequestContext.RouteData.Values["id"].ToString(),out b);
+            //Url.RequestContext.RouteData.Values["id"].ToString());
+            //var idcheck = Url.RequestContext.RouteData.Values["id"].ToString();
+            if (Url.RequestContext.RouteData.Values["id"] == null)
+            {
+                recipeIDTEST = 1;
+            }
+            else if (Url.RequestContext.RouteData.Values["id"] != null) {
+                //WonderCook.Controllers.HomeController home = new WonderCook.Controllers.HomeController();
+                //recipeIDTEST = home.Getrecid(Url.RequestContext.RouteData.Values["id"].ToString());
+                var stringNumber = Url.RequestContext.RouteData.Values["id"].ToString();
 
+                bool isNumber = int.TryParse(stringNumber, out recipeIDTEST);
+                System.Diagnostics.Debug.WriteLine(isNumber);
+                if (isNumber == false)
+                {
+                    WonderCook.Controllers.HomeController home = new WonderCook.Controllers.HomeController();
+                    recipeIDTEST = home.Getrecid(Url.RequestContext.RouteData.Values["id"].ToString());
+                }
+                else {
+                    recipeIDTEST = int.Parse(Url.RequestContext.RouteData.Values["id"].ToString());
+                }
+                //isNumber is true and numericValue=123
+                //recipeIDTEST = int.Parse(Url.RequestContext.RouteData.Values["id"].ToString());//Url.RequestContext.RouteData.Values["id"].ToString()
+            }
+            else {
+                //Url.RequestContext.RouteData.Values
+                WonderCook.Controllers.HomeController home=new WonderCook.Controllers.HomeController();
+                recipeIDTEST = home.Getrecid(Url.RequestContext.RouteData.Values["id"].ToString());
+                //Url.RequestContext.RouteData.Values["id"].ToString()
+                //recipeIDTEST = int.Parse(Url.RequestContext.RouteData.Values["id"].ToString());//Url.RequestContext.RouteData.Values["id"].ToString()
+            }
+            //recipeIDTEST = int.Parse(Url.RequestContext.RouteData.Values["id"].ToString());
             if (item.recipe_id == recipeIDTEST)
             { //item.RecipesModel.recipe_id
                 <div class="HeadingRecipe">@Html.DisplayFor(modelItem => item.recipe_name, new { @class = "HeadingRecipe" })</div>

@@ -4,15 +4,13 @@
 }
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.8.0.js"></script>
-    <script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.22/jquery-ui.js"></script>
-    <link rel="Stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/themes/redmond/jquery-ui.css" />
+    
 
     <link href="~/Content/Site1.css" rel="stylesheet" />
     <link href="~/Content/Site.css" rel="stylesheet" />
 <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.8.0.js"></script>
 <script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.22/jquery-ui.js"></script>
-<link rel="Stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/themes/redmond/jquery-ui.css" />
+<link rel="Stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.4/themes/sunny/jquery-ui.css" />
 </head>
 <body class="bodyClass" style="background:whitesmoke">
     
@@ -28,8 +26,8 @@
                         $("#txtrecipenameTest").autocomplete({
                             source: function (request, response) {
                                 $.ajax({
-                                    url: "/Home/Getemp/",
-                                    data: "{'Recipe_name':'" + request.term + "'}",
+                                    url: "/Home/Getrec/",
+                                    data: "{'recipe_name':'" + request.term + "'}",
                                     dataType: "json",
                                     type: "POST",
                                     contentType: "application/json; charset=utf-8",
@@ -40,12 +38,22 @@
                                     },
                                 });
                             },
-                            minLength: 1
+                            select: function (event, ui) {
+                                // prevent autocomplete from updating the textbox
+                                event.preventDefault();
+                                $(this).val(ui.item.label);
+                                //$("#txtGuardianId").val(ui.item.id);
+                                //location.href = "Recipe/1" + ui.item.label
+
+                                location.href = "Recipe/" + ui.item.label
+                            },
+                            minLength: 1    //minLength as 2, it means when ever user enter 2 character in TextBox the AutoComplete method will fire and get its source data. 
+
                         });
                     })
                 </script>
 
-                <input class="searchbar1 searchbarfont1" type="text" placeholder="Search for Recipes..." name="Recipe_name" id="txtrecipenameTest" style="margin-left: -7%;" />      
+                <input class="searchbar1 searchbarfont1" type="text" placeholder="Search for Recipes..." name="recipe_name" id="txtrecipenameTest" style="margin-left: -7%;" />      
                 <i class="fa fa-search fa-2xl iconsearch" style="color: rgb(206,39,39)" aria-hidden="true"></i>
             </div>
         </div>
