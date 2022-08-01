@@ -79,19 +79,32 @@
             {
                 recipeIDTEST = 1;
             }
-            //else if (Url.RequestContext.RouteData.Values["id"] != null) {
-            //    WonderCook.Controllers.HomeController home = new WonderCook.Controllers.HomeController();
-            //    recipeIDTEST = home.Getrecid(Url.RequestContext.RouteData.Values["id"].ToString());
-            //    //recipeIDTEST = int.Parse(Url.RequestContext.RouteData.Values["id"].ToString());//Url.RequestContext.RouteData.Values["id"].ToString()
-            //}
-            //else {
-            //    //Url.RequestContext.RouteData.Values
-            //    WonderCook.Controllers.HomeController home=new WonderCook.Controllers.HomeController();
-            //    recipeIDTEST=home.Getrecid(Url.RequestContext.RouteData.Values["id"].ToString());
-            //    //Url.RequestContext.RouteData.Values["id"].ToString()
-            //    //recipeIDTEST = int.Parse(Url.RequestContext.RouteData.Values["id"].ToString());//Url.RequestContext.RouteData.Values["id"].ToString()
-            //}
-            recipeIDTEST = int.Parse(Url.RequestContext.RouteData.Values["id"].ToString());
+            else if (Url.RequestContext.RouteData.Values["id"] != null) {
+                //WonderCook.Controllers.HomeController home = new WonderCook.Controllers.HomeController();
+                //recipeIDTEST = home.Getrecid(Url.RequestContext.RouteData.Values["id"].ToString());
+                var stringNumber = Url.RequestContext.RouteData.Values["id"].ToString();
+
+                bool isNumber = int.TryParse(stringNumber, out recipeIDTEST);
+                System.Diagnostics.Debug.WriteLine(isNumber);
+                if (isNumber == false)
+                {
+                    WonderCook.Controllers.HomeController home = new WonderCook.Controllers.HomeController();
+                    recipeIDTEST = home.Getrecid(Url.RequestContext.RouteData.Values["id"].ToString());
+                }
+                else {
+                    recipeIDTEST = int.Parse(Url.RequestContext.RouteData.Values["id"].ToString());
+                }
+                //isNumber is true and numericValue=123
+                //recipeIDTEST = int.Parse(Url.RequestContext.RouteData.Values["id"].ToString());//Url.RequestContext.RouteData.Values["id"].ToString()
+            }
+            else {
+                //Url.RequestContext.RouteData.Values
+                WonderCook.Controllers.HomeController home=new WonderCook.Controllers.HomeController();
+                recipeIDTEST = home.Getrecid(Url.RequestContext.RouteData.Values["id"].ToString());
+                //Url.RequestContext.RouteData.Values["id"].ToString()
+                //recipeIDTEST = int.Parse(Url.RequestContext.RouteData.Values["id"].ToString());//Url.RequestContext.RouteData.Values["id"].ToString()
+            }
+            //recipeIDTEST = int.Parse(Url.RequestContext.RouteData.Values["id"].ToString());
             if (item.recipe_id == recipeIDTEST)
             { //item.RecipesModel.recipe_id
                 <div class="HeadingRecipe">@Html.DisplayFor(modelItem => item.recipe_name, new { @class = "HeadingRecipe" })</div>

@@ -57,18 +57,33 @@ namespace WonderCook.Controllers
             //};
             return Json(recipe);
         }
-        public int Getrecid(string recipe_name)
+        public int Getrecid(string Recipe_name)
         {
             RecipeDatabaseEntities sdb = new RecipeDatabaseEntities();
-            var recipe = (from x in sdb.Recipes where x.recipe_name.StartsWith(recipe_name) select new { label = x.recipe_id });
-            //var recipeid = (from x in sdb.Recipes where x.recipe_name==recipe_name select new { label = x.recipe_id});
-           // System.Diagnostics.Debug.WriteLine(recipeid.GetType());
+            //var recipe = (from x in sdb.Recipes where x.recipe_name.StartsWith(Recipe_name) select new { label = x.recipe_id });
+
+
+            //IEnumerable<Recipes> menus = Enumerable.Empty<Recipes>();
+
+            //menus = menus.ToList();
+            //menus = menus.Concat(dbObj.Recipes.Where(t => Recipe_name.Contains(t.recipe_name.ToString())));//before that search concat not working//maybe try to conver to list and then convert to iEnumberable 
+            
+            //var recipeid = (from x in sdb.Recipes where x.recipe_name==Recipe_name select new { label = x.recipe_id});
+            var recipeid = (from x in sdb.Recipes where x.recipe_name==Recipe_name select x.recipe_id);
+            
+            //System.Diagnostics.Debug.WriteLine(recipeid.GetType());
+            //System.Diagnostics.Debug.WriteLine(recipeid);
             //return Json(recipe);
             //var a = new Dictionary<string, string>
             //{
             //    {recipeid, recipe}
             //};
-            return (int.Parse(recipe.ToString()));
+            //
+
+            int id = recipeid.First();
+            //System.Diagnostics.Debug.WriteLine("id:"+id);
+            //return (int.Parse(recipeid.ToString()));
+            return (id);
         }
         public ActionResult SearchBar()
         {
@@ -117,10 +132,10 @@ namespace WonderCook.Controllers
                 //menus = menus.ToList();
             }
             //System.Diagnostics.Debug.WriteLine("menus length:" +menus.Count());
-            foreach (var item in menus)
-            {
-                System.Diagnostics.Debug.WriteLine("menus:" + item.recipe_name);
-            }
+            //foreach (var item in menus)
+            //{
+            //    System.Diagnostics.Debug.WriteLine("menus:" + item.recipe_name);
+            //}
             //menus=menus.ToList();
             //IEnumerable<Recipes> menus = dbObj.Recipes
             //.Select(x => x)
