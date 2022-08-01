@@ -8,11 +8,11 @@
     <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
     <link href="~/Content/Site1.css" rel="stylesheet" />
 </head>
-@*@using (Html.BeginForm("SideViewPost", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
-        @Html.AntiForgeryToken()//Using AntiForgeryToken helps mitigate against cross-site request forgery attacks.*@
+        @Html.AntiForgeryToken()//Using AntiForgeryToken helps mitigate against cross-site request forgery attacks.
 @*@RenderSection("JavaScript", required: false)*@
-<div class="container-fluid seconframe" style="margin-top:10px">
+<div class="container-fluid seconframe" style="max-height: 1000px; margin-top: 10px;">
     <p style="
     color: #5a5858;
     text-align: center;
@@ -246,7 +246,7 @@
         </div>
     </div>
 </div>
-@*}*@
+}
 
 
 
