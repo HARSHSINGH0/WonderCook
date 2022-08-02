@@ -48,7 +48,7 @@ namespace WonderCook.Controllers
         {
             RecipeDatabaseEntities sdb = new RecipeDatabaseEntities();
             var recipe = (from x in sdb.Recipes where x.recipe_name.StartsWith(recipe_name) select new { label = x.recipe_name });
-            var recipeid = (from x in sdb.Recipes where x.recipe_name==recipe_name select new { label = x.recipe_id});
+            var recipeid = (from x in sdb.Recipes where x.recipe_name == recipe_name select new { label = x.recipe_id });
             System.Diagnostics.Debug.WriteLine(recipeid.GetType());
             //return Json(recipe);
             //var a = new Dictionary<string, string>
@@ -60,29 +60,8 @@ namespace WonderCook.Controllers
         public int Getrecid(string Recipe_name)
         {
             RecipeDatabaseEntities sdb = new RecipeDatabaseEntities();
-            //var recipe = (from x in sdb.Recipes where x.recipe_name.StartsWith(Recipe_name) select new { label = x.recipe_id });
-
-
-            //IEnumerable<Recipes> menus = Enumerable.Empty<Recipes>();
-
-            //menus = menus.ToList();
-            //menus = menus.Concat(dbObj.Recipes.Where(t => Recipe_name.Contains(t.recipe_name.ToString())));//before that search concat not working//maybe try to conver to list and then convert to iEnumberable 
-            
-            //var recipeid = (from x in sdb.Recipes where x.recipe_name==Recipe_name select new { label = x.recipe_id});
-            var recipeid = (from x in sdb.Recipes where x.recipe_name==Recipe_name select x.recipe_id);
-            
-            //System.Diagnostics.Debug.WriteLine(recipeid.GetType());
-            //System.Diagnostics.Debug.WriteLine(recipeid);
-            //return Json(recipe);
-            //var a = new Dictionary<string, string>
-            //{
-            //    {recipeid, recipe}
-            //};
-            //
-
+            var recipeid = (from x in sdb.Recipes where x.recipe_name == Recipe_name select x.recipe_id);
             int id = recipeid.First();
-            //System.Diagnostics.Debug.WriteLine("id:"+id);
-            //return (int.Parse(recipeid.ToString()));
             return (id);
         }
         public ActionResult SearchBar()
@@ -93,17 +72,20 @@ namespace WonderCook.Controllers
         {
             return View(dbObj.Recipes.ToList());
         }
+        [HttpGet]
+        public ActionResult Index()
+        {
+            return View(dbObj.Recipes.ToList());
+        }
 
-        
-        [System.Web.Http.HttpGet]
+        //[System.Web.Http.HttpGet]
+        [HttpPost]
         public ActionResult Index(List<string> AllIngredients_posted)
         {
             if (AllIngredients_posted == null)
             {
                 return View(dbObj.Recipes.ToList());
             }
-
-            
             //Recipes model = new Recipes();
             RecipeAddViewModelList modelistALL = new RecipeAddViewModelList();
             //IEnumerable<Ingredients> menusIngr = dbObj.Ingredients;
@@ -126,21 +108,26 @@ namespace WonderCook.Controllers
             IEnumerable<Recipes> menus = Enumerable.Empty<Recipes>();
             
             menus = menus.ToList();
+            //var noDistinct = menus.GroupBy(x => x.recipe_id).All(x => x.Count() == 1);
+            
             foreach (var item in recipeIDPosted)
             {
+                
                 menus=menus.Concat(dbObj.Recipes.Where(t => item.Contains(t.recipe_id.ToString())));//before that search concat not working//maybe try to conver to list and then convert to iEnumberable 
                 //menus = menus.ToList();
             }
-            //System.Diagnostics.Debug.WriteLine("menus length:" +menus.Count());
-            //foreach (var item in menus)
-            //{
-            //    System.Diagnostics.Debug.WriteLine("menus:" + item.recipe_name);
-            //}
-            //menus=menus.ToList();
-            //IEnumerable<Recipes> menus = dbObj.Recipes
-            //.Select(x => x)
-            //.Where(x => (x.MenuCategory == x.category)
-            //.OrderBy(x => x.MenuSequence).ToList();
+            //menus= (IEnumerable<Recipes>)menus.GroupBy(x => x.recipe_id).Select(g => g.First()).ToDictionary(x => x.recipe_id);
+            //menus=menus.Distinct().ToDictionary(x => x.recipe_id);
+            menus = menus.GroupBy(l => new { l.recipe_id, l.recipe_name, l.image, l.how_to_make }).Select(d => new Recipes
+            {
+                recipe_id = d.First().recipe_id,
+                recipe_name = d.Key.recipe_name,
+                image = d.Key.image,
+                how_to_make = d.Key.how_to_make
+
+            });
+
+
             HttpContext.Session.Clear();
             //return View("Index",menus);
             //return RedirectToAction("Index",menus);

@@ -9,6 +9,7 @@
 //    AllIngredients.push(objButton.value);
 //    sessionStorage.setItem("IngredientArray", JSON.stringify(AllIngredients));
 //    alert(AllIngredients);
+//const { post } = require("jquery");
 
 //const { htmlimports } = require("modernizr");
 
