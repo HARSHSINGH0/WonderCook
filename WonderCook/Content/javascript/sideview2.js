@@ -18,7 +18,7 @@ function IngredientAndColor(e, btn, color, objButton) {
 
     if (!(AllIngredients.indexOf(String(objButton.value)) > -1)) {
         AllIngredients.push(objButton.value);
-        alert(AllIngredients);
+        //alert(AllIngredients);
     }
     //if (AllIngredients.find(objButton.value)) {
 
