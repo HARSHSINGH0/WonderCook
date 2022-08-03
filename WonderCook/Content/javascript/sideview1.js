@@ -55,5 +55,5 @@ async function GotoRecipe(e, btn, color) {
     });
 
     const result = await res.json();
-    alert(result);
+    //alert(result);
 };
