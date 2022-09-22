@@ -1,2 +1,2 @@
 # WonderCook
-![alt text](http://url/to/wondercook(1).png)
+![alt text](https://github.com/HARSHSINGH0/WonderCook/blob/master/wondercook%20(1).png)
